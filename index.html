@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>Anika Jain | Business, Data & Social Impact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Personal website of Anika Jain – data & business professional with deep social impact leadership." />
+  <meta name="description" content="Personal website of Anika Jain – business and data professional with deep social impact leadership." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
 
   <style>
@@ -14,7 +14,7 @@
       --bg-soft: #fdf2f8;
       --text-main: #111827;
       --text-muted: #6b7280;
-      --accent: #e11d70;   /* warm, slightly feminine rose */
+      --accent: #e11d70;
       --accent-soft: #fce7f3;
       --accent-dark: #9d174d;
       --border-subtle: #e5e7eb;
@@ -25,9 +25,7 @@
       scroll-behavior: smooth;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -36,29 +34,20 @@
       color: var(--text-main);
     }
 
-    a {
-      color: var(--accent-dark);
-      text-decoration: none;
-    }
+    a { color: var(--accent-dark); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Layout */
     .page {
       max-width: 1200px;
       margin: 0 auto;
       padding: 1.2rem 1.4rem 3rem;
     }
-
     @media (min-width: 1024px) {
-      .page {
-        padding: 1.5rem 1.8rem 4rem;
-      }
+      .page { padding: 1.5rem 1.8rem 4rem; }
     }
 
-    /* Top nav */
+    /* HEADER / NAV */
+
     .shell {
       position: sticky;
       top: 0;
@@ -79,60 +68,33 @@
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-    }
-
-    .brand-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 20% 0%, #f9a8d4, #f97373 40%, #4f46e5 100%);
-      display: grid;
-      place-items: center;
-      color: white;
       font-weight: 600;
       font-size: 1rem;
-      box-shadow: 0 10px 25px rgba(190, 24, 93, 0.35);
-    }
-
-    .brand-text-main {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .brand-text-sub {
-      font-size: .78rem;
-      color: var(--text-muted);
+      letter-spacing: 0.04em;
     }
 
     .nav-links {
       display: flex;
-      gap: .8rem;
+      gap: .9rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav-links a {
-      font-size: .78rem;
-      padding: .35rem .7rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
+      font-size: .8rem;
+      padding-bottom: .15rem;
+      border-bottom: 2px solid transparent;
       color: #4b5563;
       font-weight: 500;
-      text-decoration: none;
     }
 
     .nav-links a:hover {
-      background: #f3f4ff;
-      border-color: #e5e7eb;
+      border-bottom-color: #e5e7eb;
     }
 
     .nav-links a.active {
-      background: var(--accent-soft);
+      border-bottom-color: var(--accent);
       color: var(--accent-dark);
-      border-color: rgba(225, 29, 112, 0.18);
     }
 
     .nav-toggle {
@@ -148,26 +110,16 @@
         flex-direction: column;
         width: 100%;
         margin-top: .3rem;
+        padding-bottom: .5rem;
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .shell {
-        border-radius: 0 0 1.4rem 1.4rem;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
+      .nav-links.open { display: flex; }
+      .shell { border-radius: 0 0 1.4rem 1.4rem; }
+      .nav { flex-wrap: wrap; }
+      .nav-toggle { display: block; }
     }
 
-    /* Hero */
+    /* HERO */
+
     .hero {
       margin-top: 1.8rem;
       display: grid;
@@ -175,7 +127,6 @@
       gap: 1.6rem;
       align-items: center;
     }
-
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
@@ -192,7 +143,7 @@
 
     .hero-panel h1 {
       margin: 0 0 .6rem;
-      font-size: 1.9rem;
+      font-size: 2rem;
       letter-spacing: 0.02em;
     }
 
@@ -207,14 +158,14 @@
     .hero-text {
       font-size: .95rem;
       color: var(--text-muted);
-      margin-bottom: .8rem;
+      margin-bottom: .7rem;
     }
 
     .hero-pills {
       display: flex;
       flex-wrap: wrap;
       gap: .45rem;
-      margin: .6rem 0 1.2rem;
+      margin: .6rem 0 .3rem;
     }
 
     .pill {
@@ -226,7 +177,6 @@
       background: #f9fafb;
       white-space: nowrap;
     }
-
     .pill.accent {
       background: var(--accent-soft);
       border-color: rgba(225, 29, 112, 0.35);
@@ -234,67 +184,56 @@
       font-weight: 500;
     }
 
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .6rem;
-      margin-bottom: .5rem;
+    .hero-note {
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin-top: .6rem;
     }
+
+    /* Buttons (toned down) */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: .3rem;
-      padding: .5rem .95rem;
+      padding: .45rem .9rem;
       border-radius: 999px;
-      font-size: .82rem;
+      font-size: .8rem;
       font-weight: 500;
       border: 1px solid transparent;
       text-decoration: none;
       cursor: pointer;
-      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+      transition: background .12s ease, border-color .12s ease;
       white-space: nowrap;
     }
-
     .btn-primary {
-      background: linear-gradient(135deg, #ec4899, #f97316);
+      background: var(--accent);
       color: white;
-      box-shadow: 0 12px 30px rgba(236, 72, 153, 0.45);
+      border-color: var(--accent-dark);
     }
-
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(236, 72, 153, 0.55);
+      background: var(--accent-dark);
     }
-
     .btn-outline {
       background: white;
       border-color: #e5e7eb;
       color: #4b5563;
     }
-
     .btn-outline:hover {
       background: #f9fafb;
-      box-shadow: 0 6px 18px rgba(148, 163, 184, 0.35);
     }
-
     .btn-soft {
       background: #f3f4ff;
       color: #4338ca;
       border-color: rgba(129, 140, 248, 0.35);
     }
-
     .btn-soft:hover {
       background: #e0e7ff;
     }
 
-    .hero-note {
-      font-size: .8rem;
-      color: var(--text-muted);
-    }
+    /* HERO RIGHT SIDE */
 
-    /* Hero photo / quick stats */
     .hero-side {
       display: grid;
       gap: .9rem;
@@ -315,9 +254,9 @@
     }
 
     .hero-photo {
-      width: 90px;
-      height: 90px;
-      border-radius: 24px;
+      width: 100px;
+      height: 100px;
+      border-radius: 26px;
       background: linear-gradient(135deg, #fecaca, #f9a8d4);
       display: grid;
       place-items: center;
@@ -335,7 +274,7 @@
     }
 
     .hero-photo-meta {
-      font-size: .82rem;
+      font-size: .84rem;
       color: var(--text-muted);
     }
 
@@ -358,22 +297,7 @@
       color: #1d4ed8;
     }
 
-    .hero-highlight {
-      font-size: .78rem;
-      color: #374151;
-      margin-top: .6rem;
-      border-top: 1px dashed #e5e7eb;
-      padding-top: .5rem;
-    }
-
-    .hero-highlight span {
-      background: #ecfdf3;
-      padding: .1rem .4rem;
-      border-radius: 999px;
-      font-size: .75rem;
-      color: #047857;
-      font-weight: 500;
-    }
+    /* MINI METRICS */
 
     .mini-metrics {
       display: grid;
@@ -401,18 +325,12 @@
       font-size: .7rem;
     }
 
-    /* Sections */
-    section {
-      margin-top: var(--gap-section);
-    }
+    /* SECTIONS */
 
-    section:first-of-type {
-      margin-top: 3.3rem;
-    }
+    section { margin-top: var(--gap-section); }
+    section:first-of-type { margin-top: 3.3rem; }
 
-    .section-header {
-      margin-bottom: 1.2rem;
-    }
+    .section-header { margin-bottom: 1.2rem; }
 
     .section-eyebrow {
       font-size: .78rem;
@@ -438,11 +356,8 @@
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
       gap: 1.2rem;
     }
-
     @media (max-width: 880px) {
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .grid-2 { grid-template-columns: minmax(0, 1fr); }
     }
 
     .card {
@@ -453,32 +368,11 @@
       box-shadow: 0 12px 32px rgba(148, 163, 184, 0.3);
     }
 
-    .card h3 {
-      margin: 0 0 .55rem;
-      font-size: 1rem;
-    }
+    .card h3 { margin: 0 0 .55rem; font-size: 1rem; }
+    .card p { font-size: .88rem; color: var(--text-muted); }
 
-    .card p {
-      font-size: .88rem;
-      color: var(--text-muted);
-    }
+    /* TIMELINE / LISTS */
 
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem;
-      margin-top: .5rem;
-    }
-
-    .pill-row span {
-      font-size: .76rem;
-      padding: .2rem .6rem;
-      border-radius: 999px;
-      background: #f3f4f6;
-      color: #374151;
-    }
-
-    /* Timelines / lists */
     .timeline {
       border-left: 2px solid #e5e7eb;
       padding-left: 1rem;
@@ -520,23 +414,18 @@
       margin-top: .12rem;
     }
 
-    /* Skills / expertise */
+    /* SKILLS / EXPERTISE */
+
     .skill-groups {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: .8rem;
     }
-
     @media (max-width: 900px) {
-      .skill-groups {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-
     @media (max-width: 640px) {
-      .skill-groups {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .skill-groups { grid-template-columns: minmax(0, 1fr); }
     }
 
     .skill-group-title {
@@ -558,34 +447,93 @@
       background: #eff6ff;
       color: #1d4ed8;
     }
-
     .skill-chip.soft {
       background: #ecfdf5;
       color: #047857;
     }
-
     .skill-chip.impact {
       background: #fef3c7;
       color: #b45309;
     }
 
-    /* Gallery */
-    .gallery-grid {
+    /* CARD GRID */
+
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .6rem;
+      gap: .8rem;
+    }
+    @media (max-width: 980px) {
+      .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .card-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
-    @media (max-width: 900px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .mini-card-title {
+      font-size: .9rem;
+      font-weight: 600;
+      margin-bottom: .2rem;
+    }
+    .mini-card-meta {
+      font-size: .75rem;
+      color: var(--text-muted);
+      margin-bottom: .15rem;
+    }
+    .mini-card-body {
+      font-size: .82rem;
+      color: var(--text-muted);
     }
 
-    @media (max-width: 600px) {
-      .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    /* HOBBIES */
+
+    .hobby-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      margin-top: .5rem;
+    }
+    .hobby-tag {
+      padding: .25rem .7rem;
+      border-radius: 999px;
+      border: 1px dashed #fbbf24;
+      font-size: .8rem;
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    /* GALLERY (MOVING) */
+
+    .gallery-card {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 32px rgba(148, 163, 184, 0.35);
+      border: 1px solid #e5e7eb;
+    }
+
+    .gallery-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .gallery-window {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: .2rem;
+      flex: 1;
+    }
+    .gallery-window::-webkit-scrollbar { height: 4px; }
+    .gallery-window::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 999px;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: .7rem;
     }
 
     .gallery-item {
@@ -594,11 +542,13 @@
       overflow: hidden;
       cursor: pointer;
       background: #e5e7eb;
-      min-height: 140px;
+      min-width: 220px;
+      max-width: 260px;
+      height: 150px;
       display: flex;
       align-items: stretch;
       justify-content: stretch;
-      box-shadow: 0 10px 30px rgba(148, 163, 184, 0.5);
+      box-shadow: 0 10px 25px rgba(148, 163, 184, 0.5);
       transform-origin: center;
       transition: transform .18s ease, box-shadow .18s ease;
     }
@@ -627,7 +577,23 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Gallery modal */
+    .gallery-nav {
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    .gallery-nav:hover {
+      background: #f3f4f6;
+    }
+
+    /* GALLERY MODAL */
+
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -639,9 +605,7 @@
       padding: 1rem;
     }
 
-    .modal-backdrop.open {
-      display: flex;
-    }
+    .modal-backdrop.open { display: flex; }
 
     .modal {
       max-width: 780px;
@@ -652,12 +616,11 @@
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      position: relative;
     }
 
     @media (max-width: 820px) {
-      .modal {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .modal { grid-template-columns: minmax(0, 1fr); }
     }
 
     .modal-img {
@@ -711,60 +674,8 @@
       font-size: 1rem;
     }
 
-    /* Cards for projects & awards */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .8rem;
-    }
+    /* FOOTER + BACK TO TOP */
 
-    @media (max-width: 980px) {
-      .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .card-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .mini-card-title {
-      font-size: .9rem;
-      font-weight: 600;
-      margin-bottom: .2rem;
-    }
-
-    .mini-card-meta {
-      font-size: .75rem;
-      color: var(--text-muted);
-      margin-bottom: .15rem;
-    }
-
-    .mini-card-body {
-      font-size: .82rem;
-      color: var(--text-muted);
-    }
-
-    /* Hobbies */
-    .hobby-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .45rem;
-      margin-top: .5rem;
-    }
-
-    .hobby-tag {
-      padding: .25rem .7rem;
-      border-radius: 999px;
-      border: 1px dashed #fbbf24;
-      font-size: .8rem;
-      background: #fffbeb;
-      color: #92400e;
-    }
-
-    /* Footer */
     footer {
       margin-top: 3rem;
       font-size: .78rem;
@@ -799,39 +710,30 @@
       pointer-events: auto;
       transform: translateY(0);
     }
-
-    .back-to-top:hover {
-      transform: translateY(-2px);
-    }
+    .back-to-top:hover { transform: translateY(-2px); }
   </style>
 </head>
 <body>
 
-  <!-- Sticky navigation -->
+  <!-- HEADER -->
   <div class="shell">
     <div class="nav">
-      <div class="brand">
-        <div class="brand-badge">AJ</div>
-        <div>
-          <div class="brand-text-main">Anika Jain</div>
-          <div class="brand-text-sub">Business · Data · Social Impact</div>
-        </div>
-      </div>
+      <div class="brand">ANIKA JAIN</div>
 
       <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
 
       <nav class="nav-links">
         <a href="#home" class="active">Profile</a>
-        <a href="#future">Future</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#experience">Experience</a>
+        <a href="#portfolio">Technical Portfolio</a>
         <a href="#social-impact">Social Impact</a>
         <a href="#awards">Awards</a>
         <a href="#education">Education</a>
+        <a href="#future">Future</a>
         <a href="#expertise">Expertise</a>
-        <a href="#research">Research</a>
-        <a href="#portfolio">Technical Portfolio</a>
-        <a href="#experience">Experience</a>
+        <a href="#research">Thinking</a>
         <a href="#volunteering">Volunteering</a>
-        <a href="#gallery">Gallery</a>
         <a href="#hobbies">Hobbies</a>
         <a href="#cvs">CV & Links</a>
       </nav>
@@ -843,50 +745,34 @@
     <section id="home">
       <div class="hero">
         <div class="hero-panel">
-          <h1>Hi, I’m Anika Jain.</h1>
+          <h1>Hi, I’m Anika.</h1>
           <div class="hero-subtitle">
-            I think in data, build in systems, and act with empathy.
+            I build systems where data, people, and purpose actually talk to each other.
           </div>
           <p class="hero-text">
-            I work at the intersection of <strong>business and data</strong>, leading teams that
-            curate complex datasets for AI models while staying grounded in
-            <strong>real-world social impact.</strong> My journey spans data analysis,
-            AI training, entrepreneurship within family businesses, and grassroots work
-            with communities across India.
+            I move between <strong>business problems, data sets and communities</strong> quite naturally —
+            leading AI training projects at work, helping small organisations make sense of numbers,
+            and spending a lot of time on social impact and teaching.
           </p>
           <p class="hero-text">
-            This website is a living portfolio of my <strong>future plans</strong>,
-            <strong>technical work</strong>, and <strong>impact stories</strong>.
+            This website is a living portfolio of my work, questions, and the people and places
+            that have shaped me so far.
           </p>
 
           <div class="hero-pills">
-            <span class="pill accent">Business & Data Strategy</span>
-            <span class="pill">AI Training & Data Curation</span>
-            <span class="pill">Social Impact Leadership</span>
-            <span class="pill">Storytelling with Numbers</span>
+            <span class="pill accent">Business &amp; data</span>
+            <span class="pill">AI training &amp; curation</span>
+            <span class="pill">Social impact leadership</span>
+            <span class="pill">Storytelling with numbers</span>
           </div>
 
-          <!-- CTAs -->
-          <div class="hero-ctas">
-            <!-- University contact -->
-            <a class="btn btn-primary" href="mailto:anika.jain@example.com?subject=Masters%20Admissions%20Enquiry%20-%20Anika%20Jain">
-              For universities
-            </a>
-            <!-- Recruiter contact -->
-            <a class="btn btn-outline" href="mailto:anika.jain@example.com?subject=Role%20Opportunity%20-%20Data%20%2F%20Business%20Analytics">
-              For recruiters
-            </a>
-            <!-- General contact -->
-            <a class="btn btn-soft" href="#cvs">
-              CV, GitHub &amp; LinkedIn
-            </a>
-          </div>
           <div class="hero-note">
-            You’ll find a snapshot of my CV, key projects, and a picture gallery below.
+            Scroll down for a quick visual gallery, and then into detailed sections on
+            experience, projects, impact, and more.
           </div>
         </div>
 
-        <!-- Photo + stats -->
+        <!-- Right side: photo + quick lines -->
         <aside class="hero-side">
           <div class="hero-photo-card">
             <div class="hero-photo-wrap">
@@ -896,24 +782,14 @@
                 AJ
               </div>
               <div class="hero-photo-meta">
-                <strong>Business &amp; Data Professional</strong><br />
-                Team Lead for <em>high-impact AI training projects</em> at RMSI, working with
-                time-series and wearable-device data for a global tech client.<br />
-                Deeply involved in <strong>NSS, Robin Hood Army</strong> and
-                <strong>BlessU</strong>, an initiative I started for grassroots interventions.
+                <strong>Based in India, working with global data.</strong><br />
+                Currently leading AI training and data curation projects, while staying
+                deeply involved in community work and teaching.
                 <div class="hero-tags">
-                  <span>Delhi University alumna</span>
-                  <span>IIT Delhi – Power BI</span>
-                  <span>Data &amp; Impact</span>
+                  <span>Business × Data</span>
+                  <span>Social impact</span>
+                  <span>Curious mind</span>
                 </div>
-              </div>
-            </div>
-
-            <div class="hero-highlight">
-              <span>Snapshot</span>
-              <div style="margin-top: .4rem;">
-                Built and led teams that improved dataset accuracy to 95%+, organised
-                100+ social initiatives, and still love teaching children on weekends.
               </div>
             </div>
           </div>
@@ -925,10 +801,10 @@
             </div>
             <div class="mini-metric">
               <div class="value">100+</div>
-              <div class="label">Social impact events led</div>
+              <div class="label">Social events led</div>
             </div>
             <div class="mini-metric">
-              <div class="value">8+ mo</div>
+              <div class="value">Fast-track</div>
               <div class="label">To Team Lead at RMSI</div>
             </div>
           </div>
@@ -936,58 +812,183 @@
       </div>
     </section>
 
-    <!-- FUTURE -->
-    <section id="future">
+    <!-- MOVING GALLERY -->
+    <section id="gallery">
       <div class="section-header">
-        <div class="section-eyebrow">Future</div>
-        <h2 class="section-title">Where I’m heading</h2>
+        <div class="section-eyebrow">Gallery</div>
+        <h2 class="section-title">Snapshots of my world</h2>
         <p class="section-description">
-          I see my Masters as a bridge between rigorous technical training,
-          real datasets, and social systems that actually touch people’s lives.
-          These are the directions I’m deliberately moving towards.
+          A quick rolling glimpse of awards, social work and moments that matter to me.
+          Click any picture to read the short story behind it.
+        </p>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-wrapper">
+          <button class="gallery-nav" type="button" id="galleryPrev" aria-label="Previous">‹</button>
+
+          <div class="gallery-window" id="galleryWindow">
+            <div class="gallery-track">
+              <!-- Replace src with your real images -->
+              <div class="gallery-item"
+                   data-title="Felicitated by Delhi Police"
+                   data-meta="Recognition for women & children welfare"
+                   data-desc="Receiving appreciation from Delhi Police for sustained work with NSS and independent initiatives focused on women and children."
+                   data-img="images/delhi-police-award.jpg">
+                <img src="images/delhi-police-award-thumb.jpg" alt="Felicitated by Delhi Police">
+                <div class="gallery-label">Delhi Police felicitation</div>
+              </div>
+
+              <div class="gallery-item"
+                   data-title="Teaching at a community centre"
+                   data-meta="Children’s education · NSS / RHA"
+                   data-desc="A regular teaching session with children, where we focus on maths, reading, and most importantly, confidence."
+                   data-img="images/teaching-children.jpg">
+                <img src="images/teaching-children-thumb.jpg" alt="Teaching children at a community centre">
+                <div class="gallery-label">Teaching children</div>
+              </div>
+
+              <div class="gallery-item"
+                   data-title="Food distribution drive"
+                   data-meta="BlessU / Robin Hood Army"
+                   data-desc="Coordinating food packets, logistics, and volunteers for a large community drive around festival time."
+                   data-img="images/food-drive.jpg">
+                <img src="images/food-drive-thumb.jpg" alt="Food distribution drive">
+                <div class="gallery-label">Food drive</div>
+              </div>
+
+              <div class="gallery-item"
+                   data-title="NSS campaign planning"
+                   data-meta="Team strategy & planning"
+                   data-desc="Behind-the-scenes coordination with the NSS core team to pace events, resources and partnerships."
+                   data-img="images/nss-planning.jpg">
+                <img src="images/nss-planning-thumb.jpg" alt="NSS planning meeting">
+                <div class="gallery-label">NSS planning</div>
+              </div>
+
+              <div class="gallery-item"
+                   data-title="Yoga & wellbeing"
+                   data-meta="State-level yoga medalist"
+                   data-desc="Yoga has been a quiet constant in my life — a reminder that discipline and stillness can co-exist."
+                   data-img="images/yoga.jpg">
+                <img src="images/yoga-thumb.jpg" alt="Yoga practice">
+                <div class="gallery-label">Yoga</div>
+              </div>
+
+              <div class="gallery-item"
+                   data-title="Hosting & speaking"
+                   data-meta="Anchoring events & drives"
+                   data-desc="Hosting college and NGO events, where I enjoy connecting people, stories and context."
+                   data-img="images/hosting-event.jpg">
+                <img src="images/hosting-event-thumb.jpg" alt="Hosting an event">
+                <div class="gallery-label">Hosting events</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="gallery-nav" type="button" id="galleryNext" aria-label="Next">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE (HEADINGS + READ MORE LINKS) -->
+    <section id="experience">
+      <div class="section-header">
+        <div class="section-eyebrow">Experience</div>
+        <h2 class="section-title">Professional working experience</h2>
+        <p class="section-description">
+          Short snapshots here; each role will have its own detailed page with
+          project breakdowns, examples and more context.
         </p>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>Business-aware data science</h3>
+          <h3>RMSI – AI Training &amp; Data Curation</h3>
           <p>
-            I want to deepen my foundations in <strong>machine learning, statistics,
-            time-series analysis and data engineering</strong> and apply them to
-            problems where the business constraints are as real as the math.
+            Multiple promotions within months into a Team Lead role for
+            high-impact AI training projects, working with time-series, sensor
+            and geospatial data for a major global tech client.
           </p>
-          <p>
-            My ideal work sits at the overlap of <strong>ML models, product thinking,
-            and operations</strong> — where better decisions, not just better
-            dashboards, are the outcome.
+          <p style="font-size:.82rem; margin-top:.4rem;">
+            <a href="experience-rmsi.html">Read more about my work at RMSI →</a>
           </p>
-          <div class="pill-row">
-            <span>ML for messy real-world data</span>
-            <span>Experiment design</span>
-            <span>Responsible AI</span>
-          </div>
         </div>
 
         <div class="card">
-          <h3>AI that remembers people, not just metrics</h3>
+          <h3>Options Unlimited &amp; Third Wave Coffee</h3>
           <p>
-            My social work keeps me grounded in what numbers can’t see:
-            context, dignity, and access. I want my future research and work
-            to stay anchored in <strong>inclusion and impact</strong> —
-            especially for small businesses and underserved communities.
+            Data and business analysis across e-commerce and a fast-growing
+            coffee chain – from pricing experiments to outlet-level sales and
+            product performance.
           </p>
-          <p>
-            Whether it’s optimising pricing, understanding behaviour through
-            sensor data, or improving outreach, my goal is simple: use data
-            to <strong>expand opportunity</strong>, not just efficiency.
+          <p style="font-size:.82rem; margin-top:.4rem;">
+            <a href="experience-business-analytics.html">See detailed analytics projects →</a>
           </p>
-          <div class="pill-row">
-            <span>Fair &amp; inclusive systems</span>
-            <span>Social-tech interfaces</span>
-            <span>Community-first design</span>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:1rem;">
+        <h3>Entrepreneurial &amp; family business work</h3>
+        <p>
+          Hands-on involvement in product development, packaging, basic
+          marketing and sales data analysis for family businesses – an informal
+          but powerful training ground for understanding how decisions affect
+          people, not just dashboards.
+        </p>
+        <p style="font-size:.82rem; margin-top:.4rem;">
+          <a href="experience-entrepreneurship.html">Read more about my entrepreneurial side →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- TECHNICAL PORTFOLIO (HEADINGS + LINKS LATER) -->
+    <section id="portfolio">
+      <div class="section-header">
+        <div class="section-eyebrow">Technical Portfolio</div>
+        <h2 class="section-title">Projects (overview)</h2>
+        <p class="section-description">
+          These are broad headings for my main project areas. Each will be linked
+          to a dedicated page or GitHub repository with full details.
+        </p>
+      </div>
+
+      <div class="card card-grid">
+        <div>
+          <div class="mini-card-title">Wearable data for AI training</div>
+          <div class="mini-card-meta">RMSI · Time-series &amp; sensor streams</div>
+          <div class="mini-card-body">
+            Converting raw wearable-device data into structured, quality-checked
+            inputs for ML models.
+            <br />
+            <a href="project-wearable-data.html">Details &amp; methods →</a>
+          </div>
+        </div>
+        <div>
+          <div class="mini-card-title">Pricing &amp; sales experiments</div>
+          <div class="mini-card-meta">Third Wave Coffee &amp; e-commerce</div>
+          <div class="mini-card-body">
+            Analysing experiment outcomes and outlet-level sales trends.
+            <br />
+            <a href="project-pricing-experiments.html">Details &amp; analysis →</a>
+          </div>
+        </div>
+        <div>
+          <div class="mini-card-title">Social impact analytics</div>
+          <div class="mini-card-meta">NSS, BlessU &amp; RHA</div>
+          <div class="mini-card-body">
+            Tracking drives, participation and outcomes to understand what
+            makes a campaign sustainable.
+            <br />
+            <a href="project-social-impact-analytics.html">Details &amp; learnings →</a>
           </div>
         </div>
       </div>
+
+      <p style="font-size:.8rem; color:var(--text-muted); margin-top:.6rem;">
+        Later, I’ll connect these to GitHub repositories and write-ups focused
+        purely on method, not confidential data.
+      </p>
     </section>
 
     <!-- SOCIAL IMPACT -->
@@ -996,9 +997,8 @@
         <div class="section-eyebrow">Social Impact</div>
         <h2 class="section-title">Work that keeps me grounded</h2>
         <p class="section-description">
-          I grew up believing that leadership starts where you stand. My work in
-          villages, slums, and city streets has shaped how I think about data,
-          policy, and access.
+          Villages, slums, classrooms and streets – these are the places that
+          quietly shaped how I think about data, policy and access.
         </p>
       </div>
 
@@ -1011,8 +1011,9 @@
               <div class="timeline-title">Secretary, NSS</div>
               <div class="timeline-body">
                 Led a team of ~120 volunteers, organised <strong>100+ drives</strong>
-                on women’s hygiene, children’s education, elderly care, and environment.
-                Built partnerships with 20+ organisations and government bodies.
+                on women’s hygiene, children’s education, elderly care, and
+                environment. Built partnerships with 20+ organisations and
+                government bodies.
               </div>
             </div>
             <div class="timeline-item">
@@ -1023,26 +1024,27 @@
               </div>
             </div>
           </div>
+          <p style="font-size:.82rem; margin-top:.3rem;">
+            <a href="impact-nss.html">Read more about my NSS journey →</a>
+          </p>
         </div>
 
         <div class="card">
           <h3>BlessU &amp; Robin Hood Army</h3>
           <p>
-            Through <strong>BlessU</strong>, a small initiative I started, and my work
-            with the <strong>Robin Hood Army</strong>, I’ve helped coordinate food
-            distribution, awareness sessions, and teaching programmes for children.
+            Through <strong>BlessU</strong>, a small initiative I started, and my
+            work with the <strong>Robin Hood Army</strong>, I’ve helped coordinate
+            food distribution, awareness sessions, and teaching programmes for children.
           </p>
           <p>
-            I prefer grassroots execution over photographs, but I’ve coordinated
-            large Independence Day and community campaigns, often combining
-            <strong>logistics, data tracking, and storytelling</strong> to make
-            sure the work sustains beyond a single event.
+            I’m more comfortable in execution than in photographs, but I’ve
+            coordinated large Independence Day and community campaigns, often
+            combining <strong>logistics, data tracking, and storytelling</strong>
+            to make sure the work sustains.
           </p>
-          <div class="pill-row">
-            <span>Campaign design</span>
-            <span>On-ground execution</span>
-            <span>Teaching children</span>
-          </div>
+          <p style="font-size:.82rem; margin-top:.3rem;">
+            <a href="impact-blessu-rha.html">Read more about BlessU &amp; RHA →</a>
+          </p>
         </div>
       </div>
     </section>
@@ -1053,8 +1055,8 @@
         <div class="section-eyebrow">Awards</div>
         <h2 class="section-title">Recognitions &amp; milestones</h2>
         <p class="section-description">
-          A few moments that encouraged me to take both my academic and
-          social work seriously, without losing the joy of learning.
+          A few highlights that encouraged me to keep doing the work, and to keep
+          raising the bar for myself.
         </p>
       </div>
 
@@ -1063,7 +1065,7 @@
           <div class="mini-card-title">Felicitated by Delhi Police</div>
           <div class="mini-card-meta">Women’s Day &amp; community initiatives</div>
           <div class="mini-card-body">
-            Recognised for contributions towards women and children’s welfare
+            Recognition for contributions towards women and children’s welfare
             through sustained NSS and independent drives.
           </div>
         </div>
@@ -1080,14 +1082,13 @@
           <div class="mini-card-meta">School &amp; university</div>
           <div class="mini-card-body">
             State-level <strong>yoga medalist</strong>, and awards in international
-            Olympiads, creative writing, calligraphy and more — a mix that
-            reflects both discipline and curiosity.
+            Olympiads, creative writing, calligraphy and more.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION: SCHOOL + COLLEGE -->
+    <!-- EDUCATION -->
     <section id="education">
       <div class="section-header">
         <div class="section-eyebrow">Education</div>
@@ -1129,18 +1130,59 @@
           </p>
           <p>
             School years were a blend of academics, yoga, sports, and creative arts —
-            experiences that now show up as comfort with both
-            <strong>discipline and experimentation</strong>.
+            experiences that now show up as comfort with both discipline and experimentation.
           </p>
           <p style="font-size:.8rem; color:var(--text-muted); margin-top:.5rem;">
-            (You can replace this paragraph later with specific school names,
-            boards, and highlights.)
+            (You can later replace this text with specific school names, boards, and details.)
           </p>
         </div>
       </div>
     </section>
 
-    <!-- EXPERTISE & SKILLS -->
+    <!-- FUTURE / DIRECTION -->
+    <section id="future">
+      <div class="section-header">
+        <div class="section-eyebrow">Future</div>
+        <h2 class="section-title">Where I want my work to go</h2>
+        <p class="section-description">
+          Not a rigid plan, but a direction: business-aware data science that stays
+          human and honest about its impact.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Business-aware data science</h3>
+          <p>
+            I want to deepen my foundations in <strong>machine learning, statistics,
+            time-series analysis and data engineering</strong> and apply them to
+            problems where the business constraints are as real as the math.
+          </p>
+          <p>
+            My ideal work sits at the overlap of <strong>ML models, product thinking,
+            and operations</strong> — where better decisions, not just better
+            dashboards, are the outcome.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>AI that remembers people, not just metrics</h3>
+          <p>
+            My social work keeps me grounded in what numbers can’t see: context,
+            dignity, and access. I want my future research and work to stay anchored
+            in <strong>inclusion and impact</strong> — especially for small businesses
+            and underserved communities.
+          </p>
+          <p>
+            Whether it’s pricing, behaviour through sensor data, or outreach,
+            my goal is simple: use data to <strong>expand opportunity</strong>,
+            not just efficiency.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
     <section id="expertise">
       <div class="section-header">
         <div class="section-eyebrow">Expertise</div>
@@ -1188,20 +1230,20 @@
       </div>
     </section>
 
-    <!-- RESEARCH & THINKING STYLE -->
+    <!-- RESEARCH / THINKING STYLE -->
     <section id="research">
       <div class="section-header">
-        <div class="section-eyebrow">Research &amp; interests</div>
+        <div class="section-eyebrow">Thinking</div>
         <h2 class="section-title">How I like to think</h2>
         <p class="section-description">
-          I am curious about methods that respect the messiness of human behaviour
-          and still produce clear, actionable insights.
+          I’m drawn to methods that respect the messiness of human behaviour and
+          still produce clear, honest insights.
         </p>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>Areas I’m drawn towards</h3>
+          <h3>Areas I’m curious about</h3>
           <ul style="padding-left:1.1rem; font-size:.86rem; color:var(--text-muted); margin-top:.3rem;">
             <li><strong>Time-series &amp; sensor data</strong> – especially from wearables and real-world devices.</li>
             <li><strong>Experiment design &amp; causal reasoning</strong> around pricing, interventions and behaviour.</li>
@@ -1210,7 +1252,7 @@
         </div>
 
         <div class="card">
-          <h3>Thinking style</h3>
+          <h3>My problem-solving style</h3>
           <p>
             I like to <strong>structure ambiguous problems</strong> into clear
             questions, identify what can and cannot be measured, and then choose
@@ -1225,102 +1267,7 @@
       </div>
     </section>
 
-    <!-- TECHNICAL PORTFOLIO (placeholder project headings) -->
-    <section id="portfolio">
-      <div class="section-header">
-        <div class="section-eyebrow">Technical Portfolio</div>
-        <h2 class="section-title">Projects (to be detailed)</h2>
-        <p class="section-description">
-          These are broad buckets of work. Each will later expand into a
-          full project description, with repositories, methods and results.
-        </p>
-      </div>
-
-      <div class="card card-grid">
-        <div>
-          <div class="mini-card-title">Wearable data for AI training</div>
-          <div class="mini-card-meta">RMSI · Time-series &amp; sensor streams</div>
-          <div class="mini-card-body">
-            Converting raw wearable-device data into structured, quality-checked
-            inputs for ML models. (Will link to a redacted, method-focused write-up.)
-          </div>
-        </div>
-        <div>
-          <div class="mini-card-title">Pricing &amp; sales experiments</div>
-          <div class="mini-card-meta">Third Wave Coffee &amp; e-commerce work</div>
-          <div class="mini-card-body">
-            Analysing experiment outcomes and outlet-level sales trends using
-            spreadsheets, SQL and basic statistical reasoning.
-          </div>
-        </div>
-        <div>
-          <div class="mini-card-title">Social impact analytics</div>
-          <div class="mini-card-meta">NSS, BlessU &amp; RHA</div>
-          <div class="mini-card-body">
-            Tracking drives, participation and outcomes to understand what
-            makes a campaign sustainable beyond a single event.
-          </div>
-        </div>
-      </div>
-
-      <p style="font-size:.8rem; color:var(--text-muted); margin-top:.6rem;">
-        Later, I’ll add: GitHub repositories, short technical notes, and links
-        to analyses that can be shared publicly.
-      </p>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="section-header">
-        <div class="section-eyebrow">Experience</div>
-        <h2 class="section-title">Professional working experience</h2>
-        <p class="section-description">
-          From AI data pipelines to coffee chains and e-commerce, I’ve been
-          fortunate to see how decisions actually move numbers on the ground.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>RMSI</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-meta">Team Lead · AI training &amp; data curation</div>
-              <div class="timeline-body">
-                Leading end-to-end curation, cleaning and delivery of time-series,
-                geospatial and visual datasets for a major global tech client.
-                Improved team accuracy to <strong>95%+</strong> and scaled dataset
-                throughput significantly while mentoring junior analysts.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Earlier roles</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-meta">Data &amp; business analysis</div>
-              <div class="timeline-body">
-                Worked with e-commerce data, pricing experiments, outlet-level
-                performance and family businesses, handling product development,
-                packaging, and basic analytics on sales data.
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-meta">Communication &amp; client interaction</div>
-              <div class="timeline-body">
-                Regularly interacted with stakeholders to understand business
-                questions, translate them into analysis plans, and present findings
-                clearly and honestly.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VOLUNTEERING – BIG SECTION -->
+    <!-- VOLUNTEERING -->
     <section id="volunteering">
       <div class="section-header">
         <div class="section-eyebrow">Volunteering</div>
@@ -1346,8 +1293,7 @@
             <div class="timeline-meta">BlessU &amp; Robin Hood Army</div>
             <div class="timeline-body">
               Organised food distribution campaigns, Independence Day drives
-              and ongoing teaching for underprivileged children. Preferred
-              sustained, low-noise work over social-media-heavy campaigns.
+              and ongoing teaching for underprivileged children.
             </div>
           </div>
           <div class="timeline-item">
@@ -1362,69 +1308,6 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
-    <section id="gallery">
-      <div class="section-header">
-        <div class="section-eyebrow">Gallery</div>
-        <h2 class="section-title">Life in pictures</h2>
-        <p class="section-description">
-          A rotating glimpse of ceremonies, campaigns and quiet moments of work.
-          Click any image for a short context note.
-        </p>
-      </div>
-
-      <div class="gallery-grid">
-        <!-- Replace src values with your own images -->
-        <div class="gallery-item" data-title="Felicitated by Delhi Police"
-             data-meta="Recognition for women & children welfare"
-             data-desc="Receiving appreciation from Delhi Police for sustained work with NSS and independent initiatives focused on women and children."
-             data-img="images/delhi-police-award.jpg">
-          <img src="images/delhi-police-award-thumb.jpg" alt="Felicitated by Delhi Police">
-          <div class="gallery-label">Delhi Police felicitation</div>
-        </div>
-
-        <div class="gallery-item" data-title="Teaching at a community centre"
-             data-meta="Children’s education · NSS / RHA"
-             data-desc="A regular teaching session with children, where we focus on maths, reading, and most importantly, confidence."
-             data-img="images/teaching-children.jpg">
-          <img src="images/teaching-children-thumb.jpg" alt="Teaching children at a community centre">
-          <div class="gallery-label">Teaching children</div>
-        </div>
-
-        <div class="gallery-item" data-title="Food distribution drive"
-             data-meta="BlessU / Robin Hood Army"
-             data-desc="Coordinating food packets, logistics, and volunteers for a large community drive around festival time."
-             data-img="images/food-drive.jpg">
-          <img src="images/food-drive-thumb.jpg" alt="Food distribution drive">
-          <div class="gallery-label">Food drive</div>
-        </div>
-
-        <div class="gallery-item" data-title="NSS campaign planning"
-             data-meta="Team strategy & planning"
-             data-desc="Behind-the-scenes coordination with the NSS core team to pace events, resources and partnerships."
-             data-img="images/nss-planning.jpg">
-          <img src="images/nss-planning-thumb.jpg" alt="NSS planning meeting">
-          <div class="gallery-label">NSS planning</div>
-        </div>
-
-        <div class="gallery-item" data-title="Yoga & wellbeing"
-             data-meta="State-level yoga medalist"
-             data-desc="Yoga has been a quiet constant in my life — a reminder that discipline and stillness can co-exist."
-             data-img="images/yoga.jpg">
-          <img src="images/yoga-thumb.jpg" alt="Yoga practice">
-          <div class="gallery-label">Yoga</div>
-        </div>
-
-        <div class="gallery-item" data-title="Hosting & speaking"
-             data-meta="Anchoring events & drives"
-             data-desc="Hosting college and NGO events, where I enjoy connecting people, stories and context."
-             data-img="images/hosting-event.jpg">
-          <img src="images/hosting-event-thumb.jpg" alt="Hosting an event">
-          <div class="gallery-label">Hosting events</div>
-        </div>
-      </div>
-    </section>
-
     <!-- HOBBIES -->
     <section id="hobbies">
       <div class="section-header">
@@ -1432,15 +1315,14 @@
         <h2 class="section-title">What keeps me balanced</h2>
         <p class="section-description">
           I take my work seriously, but I try not to take myself too seriously.
-          A few things that keep me human.
+          These help.
         </p>
       </div>
 
       <div class="card">
         <p style="font-size:.9rem; color:var(--text-muted);">
           Outside spreadsheets and campaigns, you’ll usually find me practising
-          yoga, working with children, or learning something new for no reason
-          other than curiosity.
+          yoga, working with children, or learning something new just for fun.
         </p>
         <div class="hobby-tags">
           <span class="hobby-tag">Yoga (state-level medalist)</span>
@@ -1453,25 +1335,24 @@
       </div>
     </section>
 
-    <!-- CVs & LINKS -->
+    <!-- CV & LINKS -->
     <section id="cvs">
       <div class="section-header">
         <div class="section-eyebrow">CV &amp; Links</div>
         <h2 class="section-title">Quick access</h2>
         <p class="section-description">
-          For convenience, here are direct links commonly requested by
-          admissions committees and recruiters.
+          Direct links commonly requested by admissions committees and recruiters.
         </p>
       </div>
 
       <div class="card">
         <div class="hero-ctas" style="margin-bottom:.7rem;">
-          <!-- TODO: Replace all # with real links -->
-          <a class="btn btn-primary" href="https://your-cv-link-here" target="_blank" rel="noopener">
-            View academic CV (PDF)
+          <!-- TODO: Replace all #/links with real URLs -->
+          <a class="btn btn-primary" href="https://your-academic-cv-link" target="_blank" rel="noopener">
+            Academic CV (PDF)
           </a>
-          <a class="btn btn-outline" href="https://your-industry-cv-link-here" target="_blank" rel="noopener">
-            View industry CV (PDF)
+          <a class="btn btn-outline" href="https://your-industry-cv-link" target="_blank" rel="noopener">
+            Industry CV (PDF)
           </a>
           <a class="btn btn-soft" href="https://github.com/yourgithub" target="_blank" rel="noopener">
             GitHub
@@ -1483,17 +1364,16 @@
 
         <p style="font-size:.86rem; color:var(--text-muted);">
           <strong>Email:</strong>
-          <a href="mailto:anika.jain@example.com">anika.jain@example.com</a>
-          <br />
-          <strong>Preferred subject lines:</strong>
-          “Masters Admissions – [Your University] – Anika Jain” or
+          <a href="mailto:anika.jain@example.com">anika.jain@example.com</a><br />
+          <strong>Suggested subject lines:</strong><br />
+          “Masters Admissions – [University] – Anika Jain”<br />
           “Role Opportunity – [Company] – Data / Business Analytics”.
         </p>
       </div>
     </section>
   </main>
 
-  <!-- Gallery modal -->
+  <!-- GALLERY MODAL -->
   <div class="modal-backdrop" id="galleryModal">
     <div class="modal">
       <button class="modal-close" type="button" aria-label="Close">&times;</button>
@@ -1508,7 +1388,7 @@
     </div>
   </div>
 
-  <!-- Back to top -->
+  <!-- BACK TO TOP -->
   <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
   <script>
@@ -1520,7 +1400,7 @@
       navLinks.classList.toggle('open');
     });
 
-    // Smooth scroll and active link highlight
+    // Smooth scroll / active link
     const navAnchors = document.querySelectorAll('.nav-links a');
     const sections = Array.from(document.querySelectorAll('main section'));
 
@@ -1554,6 +1434,18 @@
       navAnchors.forEach(a => {
         a.classList.toggle('active', a.getAttribute('href') === '#' + current);
       });
+    });
+
+    // Gallery scrolling
+    const galleryWindow = document.getElementById('galleryWindow');
+    const galleryPrev = document.getElementById('galleryPrev');
+    const galleryNext = document.getElementById('galleryNext');
+
+    galleryPrev.addEventListener('click', () => {
+      galleryWindow.scrollBy({ left: -260, behavior: 'smooth' });
+    });
+    galleryNext.addEventListener('click', () => {
+      galleryWindow.scrollBy({ left: 260, behavior: 'smooth' });
     });
 
     // Gallery modal logic
@@ -1592,7 +1484,7 @@
       }
     });
 
-    // Back to top button
+    // Back to top
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 360) {
@@ -1601,12 +1493,9 @@
         backToTop.classList.remove('visible');
       }
     });
-
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
 </html>
-
-
