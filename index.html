@@ -68,143 +68,137 @@
       margin:0 auto;
     }
 
-    /* =========================
-   HERO — full-image artistic banner
-   Replace previous .hero / .hero-blob CSS with this block
+/* =========================
+   HERO — framed photo (right) + blurred background extension (left)
+   Replace the old hero CSS with this block
    ========================= */
 
 .hero {
   position: relative;
-  height: calc(100vh - 80px); /* hero fills most of viewport */
   min-height: 520px;
-  border-radius: 20px;
-  overflow: hidden;
-  display:block;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.02));
+  height: calc(86vh);
+  border-radius: 18px;
+  overflow: visible;
   margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: 1fr 420px; /* left text, right framed photo */
+  align-items: center;
+  gap: 28px;
 }
 
-/* FULL IMAGE that covers the hero */
-.hero-photo {
+/* left-side blurred extension of the image (artistic background, NOT exact) */
+.hero-bg-extension {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 62%;
   z-index: 1;
+  background-image: url('anika-hero.jpeg'); /* EDIT if filename different */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 40% 36%; /* EDIT to reposition the extension */
+  filter: blur(18px) saturate(0.5) brightness(0.9);
+  transform: scale(1.12);
+  mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%);
+  border-radius: 18px 0 0 18px;
   pointer-events: none;
 }
 
-/* the <img> is full-bleed; change object-position to focus face */
-.hero-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* EDIT: tweak these percentages to move the face into view: object-position: X% Y% */
-  object-position: 80% 50%;
-  filter: contrast(1.03) saturate(1.06);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.95) 60%, rgba(0,0,0,0.88) 80%, rgba(0,0,0,0.4) 100%);
-}
-
-/* Soft hazed overlay to create readable area where text sits */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(90deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 35%, rgba(0,0,0,0.18) 100%);
-  mix-blend-mode: normal;
-  pointer-events: none;
-}
-
-/* TEXT CONTAINER sits above the image */
+/* text container sits on top of blurred extension */
 .hero-content {
   position: relative;
   z-index: 3;
-  display: grid;
-  grid-template-columns: 1fr minmax(0,420px);
-  height: 100%;
-  align-items: center;
-  gap: 28px;
-  padding: 48px clamp(18px, 4vw, 56px);
+  padding: 44px clamp(16px, 3.5vw, 48px);
+  max-width: 64ch;
 }
 
-/* Left overlay text block (we will mostly use this) */
-.hero-text-block {
-  max-width: 66ch;
-  align-self: center;
-  /* place slightly left of center over image */
-  padding-top: 10vh;
-}
-
-/* NAME (prominent) */
+/* prominent name (left) */
 .hero-name {
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 0.96;
+  font-size: clamp(34px, 5.6vw, 58px);
+  line-height: 0.97;
+  margin: 0 0 10px;
   font-weight: 800;
   color: #fff;
-  text-shadow: 0 10px 30px rgba(7,10,20,0.45);
-  margin: 0 0 10px;
-  letter-spacing: -0.02em;
+  text-shadow: 0 10px 26px rgba(6,10,18,0.48);
 }
 
-/* TAGLINE between business / data / social impact */
+/* tagline: short phrase between business/data/social impact */
 .hero-tagline {
   font-family: "Source Serif 4", Georgia, serif;
-  color: rgba(255,255,255,0.92);
-  font-size: clamp(16px, 2.2vw, 20px);
-  font-style: italic;
-  margin-bottom: 14px;
-  opacity: 0.95;
-}
-
-/* small paragraph that you liked */
-.hero-paragraph {
   color: rgba(255,255,255,0.93);
-  max-width: 52ch;
-  font-size: 15px;
-  margin-bottom: 22px;
-  text-shadow: 0 6px 18px rgba(7,10,20,0.28);
+  font-size: clamp(15px, 2.0vw, 18px);
+  font-style: italic;
+  margin-bottom: 12px;
 }
 
-/* subdued CTAs (low contrast) positioned lower and small */
-.hero-ctas-subtle {
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-top: 10px;
-  opacity: 0.78;
-}
-
-.hero-ctas-subtle a {
+/* paragraph under tagline (you said you liked this) */
+.hero-paragraph {
   color: rgba(255,255,255,0.92);
-  background: rgba(255,255,255,0.06);
-  padding: 8px 12px;
-  border-radius: 99px;
-  font-weight:600;
-  font-size:13px;
-  border: 1px solid rgba(255,255,255,0.06);
-  text-decoration:none;
+  font-size: 15px;
+  margin-bottom: 0;
+  text-shadow: 0 6px 14px rgba(6,10,18,0.26);
 }
 
-/* small dot/line for artistic decor behind text */
+/* Remove hero-centered CTAs; we will place CTAs below the hero */
+/* Small decorative line above text for subtle art */
 .hero-decor {
-  width: 84px;
+  width: 88px;
   height: 6px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.35));
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.45));
   border-radius: 999px;
   margin-bottom: 18px;
   opacity: 0.95;
 }
 
-/* Right-side empty spacer (keeps text left and photo visible on right) */
-.hero-spacer { }
+/* RIGHT: small framed photo — visible and offset 
+   The frame crops top & bottom; tune frame height to "cut" the photo */
+.hero-photo-frame {
+  position: relative;
+  z-index: 4;
+  width: 360px;
+  max-width: 34vw;
+  height: calc(84vh - 48px);
+  max-height: 640px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-right: 12px;
+  box-shadow: 0 26px 56px rgba(12,18,28,0.18);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
+  align-self: center;
+}
 
-/* Mobile tweaks */
-@media (max-width:980px){
-  .hero-content { grid-template-columns: 1fr; padding: 28px 20px; }
-  .hero-text-block { padding-top: 8vh; }
-  .hero-name { font-size: clamp(32px, 9vw, 44px); }
-  .hero-paragraph { font-size: 14px; }
+/* actual image inside the frame (zoomed out by scale < 1) */
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Zoom out: scale <1 makes image appear smaller in the frame */
+  transform: scale(0.86);
+  transform-origin: center;
+  transition: transform .35s ease;
+  /* EDIT: tweak object-position to shift face inside the small frame */
+  object-position: 50% 38%;
+  filter: contrast(1.02) saturate(1.03);
+  display:block;
+}
+
+/* optional: slightly raise on hover */
+.hero-photo-frame:hover img { transform: scale(0.89); }
+
+/* Keep hero responsive */
+@media (max-width:1000px){
+  .hero { grid-template-columns: 1fr 300px; }
+  .hero-photo-frame { width:280px; height:56vh; }
+  .hero-name { font-size: clamp(30px, 7vw, 46px); }
+}
+@media (max-width:720px){
+  .hero { grid-template-columns: 1fr; padding: 0; height: auto; min-height: 360px; }
+  .hero-bg-extension { display:none; }
+  .hero-photo-frame { width:100%; height:38vh; margin: 10px 0 0; }
+  .hero-content { padding:28px; }
 }
 
     /* =========================
@@ -286,53 +280,45 @@
          ========================= -->
     <main>
 
-      <!-- =========================
-           HERO / BANNER — EDIT: HERO CONTENT / HERO IMAGE
-           To change hero text, edit the commented blocks below.
-           To change image: replace the root file "anika-hero.jpeg" with your file.
-           (You asked JPEGs in root; file is referenced as "anika-hero.jpeg".)
-           ========================= -->
-      <header id="home" class="hero" role="banner">
-  <!-- Full-bleed photo (EDIT: file name below) -->
-  <div class="hero-photo" aria-hidden="true">
-    <!-- EDIT: Replace filename if different; you said JPEGs in root -->
+    <!-- ===== HERO: framed photo + blurred background extension ===== -->
+<header id="home" class="hero" role="banner">
+  <!-- left-side blurred extension (artistic, not exact photo copy) -->
+  <div class="hero-bg-extension" aria-hidden="true"></div>
+
+  <!-- main content (left) -->
+  <div class="hero-content">
+    <div class="hero-decor" aria-hidden="true"></div>
+
+    <!-- EDIT: HERO NAME -->
+    <h1 class="hero-name"><!-- EDIT: HERO NAME -->Anika Jain</h1>
+
+    <!-- EDIT: HERO TAGLINE (short line between business / data / social impact) -->
+    <div class="hero-tagline"><!-- EDIT: HERO TAGLINE -->Business · Data · Social Impact</div>
+
+    <!-- EDIT: HERO PARAGRAPH -->
+    <p class="hero-paragraph">
+      I build systems where data, people and purpose meet — leading AI training projects, converting messy sensor streams into usable datasets, and running grassroots education and food distribution campaigns.
+    </p>
+  </div>
+
+  <!-- right-side framed portrait (smaller, cropped top & bottom) -->
+  <div class="hero-photo-frame" aria-hidden="false">
+    <!-- EDIT: replace filename if different -->
     <img src="anika-hero.jpeg" alt="Anika Jain portrait">
   </div>
-
-  <!-- soft overlay to help text stand out -->
-  <div class="hero-overlay" aria-hidden="true"></div>
-
-  <!-- content that floats above the photo -->
-  <div class="hero-content">
-
-    <!-- LEFT: text over the photo -->
-    <div class="hero-text-block">
-      <!-- subtle decorative bar -->
-      <div class="hero-decor" aria-hidden="true"></div>
-
-      <!-- EDIT: HERO NAME -->
-      <h1 class="hero-name"><!-- EDIT: HERO NAME -->Anika Jain</h1>
-
-      <!-- EDIT: TAGLINE — set this between business · data · social impact -->
-      <div class="hero-tagline"><!-- EDIT: HERO TAGLINE -->Business · Data · Social Impact</div>
-
-      <!-- small paragraph you liked — edit text if needed -->
-      <p class="hero-paragraph"><!-- EDIT: HERO PARAGRAPH -->
-        I build systems where data, people and purpose meet — leading AI training projects, converting messy sensor streams into usable datasets, and running grassroots education and food distribution campaigns.
-      </p>
-
-      <!-- subtle CTAs (not centre attention); edit links as needed -->
-      <div class="hero-ctas-subtle">
-        <a href="#gallery">Gallery</a>
-        <a href="#experience">Experience</a>
-        <a href="#cvs">CV</a>
-      </div>
-    </div>
-
-    <!-- RIGHT: spacer to preserve layout (photo remains full bleed behind) -->
-    <div class="hero-spacer" aria-hidden="true"></div>
-  </div>
 </header>
+
+<!-- ===== HERO CTAs BELOW (subtle; moved away from hero) =====
+     Paste this immediately AFTER the closing </header> -->
+<div style="display:flex;justify-content:center;margin:18px 0 28px;z-index:5">
+  <div style="display:flex;gap:12px;align-items:center;opacity:0.9">
+    <!-- EDIT: BUTTON LINKS -->
+    <a class="btn" href="#gallery" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:8px 12px;border-radius:999px;font-weight:600">Gallery</a>
+    <a class="btn" href="#experience" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:8px 12px;border-radius:999px;font-weight:600">Experience</a>
+    <a class="btn" href="#cvs" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:8px 12px;border-radius:999px;font-weight:600">CV</a>
+  </div>
+</div>
+
 
       <!-- =========================
            GALLERY (EDIT: FILES IN ROOT)
