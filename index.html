@@ -1,528 +1,359 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Anika Jain — Business · Data · Social Impact</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfolio of Anika Jain — business, data and social impact.">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anika Jain</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
 
-  <style>
-    /* =========================
-       GLOBAL / COLORS / LAYOUT
-       ========================= */
-    :root{
-      --bg:#fbfcfe;
-      --card:#ffffff;
-      --muted:#6b7280;
-      --text:#0f1724;
-      --accent:#d6336c;
-      --accent-2:#fbf0f6;
-      --radius:16px;
-      --sidebar-w:260px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background:linear-gradient(180deg,#fff 0%,#fbf8fb 100%);color:var(--text);
-      -webkit-font-smoothing:antialiased;
-    }
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* =========================
-       LAYOUT: sidebar left + content
-       ========================= */
-    .layout{
-      display:flex;
-      min-height:100vh;
-      gap:28px;
-    }
-
-    /* ===== LEFT SIDEBAR (EDIT: SIDEBAR LINKS) ===== */
-    .sidebar{
-      width:var(--sidebar-w);
-      padding:36px 22px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.92), rgba(253,246,250,0.92));
-      border-right:1px solid rgba(230,230,235,0.9);
-      display:flex;flex-direction:column;gap:18px;
-      align-items:flex-start;
-      position:sticky;top:20px;height:calc(100vh - 40px);
-    }
-    .brand-name{font-weight:700;letter-spacing:0.15em;font-size:14px}
-    .brand-sub{font-size:12px;color:var(--muted);margin-top:4px}
-    .nav-links{margin-top:18px;display:flex;flex-direction:column;gap:10px;width:100%}
-    .nav-links a{font-weight:600;color:#374151;padding:8px 10px;border-radius:10px}
-    .nav-links a.active{background:var(--accent-2);border-left:3px solid var(--accent);color:var(--text)}
-    .sidebar-footer{margin-top:auto;font-size:12px;color:var(--muted)}
-
-    /* =========================
-       MAIN CONTENT
-       ========================= */
-    main{
-      flex:1;
-      padding:36px;
-      max-width:1100px;
-      margin:0 auto;
-    }
-
-/* =========================
-   HERO — framed photo (right) + blurred background extension (left)
-   Replace the old hero CSS with this block
-   ========================= */
-
-.hero {
-  position: relative;
-  min-height: 520px;
-  height: calc(86vh);
-  border-radius: 18px;
-  overflow: visible;
-  margin-bottom: 28px;
-  display: grid;
-  grid-template-columns: 1fr 420px; /* left text, right framed photo */
-  align-items: center;
-  gap: 28px;
+<style>
+/* =====================
+   COLOR PALETTE — OPTION B
+   ===================== */
+:root{
+  --bg-main:#f8f9fb;
+  --bg-soft:#ffffff;
+  --navy:#1f2a44;
+  --navy-soft:#2f3e63;
+  --text-main:#111827;
+  --text-muted:#6b7280;
+  --border-soft:rgba(31,42,68,0.08);
 }
 
-/* left-side blurred extension of the image (artistic background, NOT exact) */
-.hero-bg-extension {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 62%;
-  z-index: 1;
-  background-image: url('anika-hero.jpeg'); /* EDIT if filename different */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 40% 36%; /* EDIT to reposition the extension */
-  filter: blur(18px) saturate(0.5) brightness(0.9);
-  transform: scale(1.12);
-  mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%);
-  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0) 100%);
-  border-radius: 18px 0 0 18px;
-  pointer-events: none;
+/* =====================
+   GLOBAL
+   ===================== */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Poppins",system-ui;
+  background:var(--bg-main);
+  color:var(--text-main);
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0}
+
+/* =====================
+   LAYOUT
+   ===================== */
+.layout{
+  display:flex;
+  max-width:1400px;
+  margin:auto;
+}
+aside{
+  width:260px;
+  padding:36px 28px;
+  position:sticky;
+  top:0;
+  height:100vh;
+  background:var(--bg-soft);
+  border-right:1px solid var(--border-soft);
+}
+main{
+  flex:1;
+  padding:40px 60px;
 }
 
-/* text container sits on top of blurred extension */
-.hero-content {
-  position: relative;
-  z-index: 3;
-  padding: 44px clamp(16px, 3.5vw, 48px);
-  max-width: 64ch;
+/* =====================
+   SIDEBAR
+   ===================== */
+.brand{
+  font-weight:700;
+  letter-spacing:0.15em;
+  font-size:14px;
+}
+.nav{
+  margin-top:40px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.nav a{
+  font-weight:600;
+  font-size:14px;
+  color:var(--navy);
 }
 
-/* prominent name (left) */
-.hero-name {
-  font-size: clamp(34px, 5.6vw, 58px);
-  line-height: 0.97;
-  margin: 0 0 10px;
-  font-weight: 800;
-  color: #fff;
-  text-shadow: 0 10px 26px rgba(6,10,18,0.48);
+/* =====================
+   HERO
+   ===================== */
+.hero{
+  padding:80px 0 60px;
+}
+.hero h1{
+  font-size:56px;
+  color:var(--navy);
+}
+.hero p{
+  max-width:620px;
+  margin-top:18px;
+  font-size:16px;
+  color:var(--text-muted);
 }
 
-/* tagline: short phrase between business/data/social impact */
-.hero-tagline {
-  font-family: "Source Serif 4", Georgia, serif;
-  color: rgba(255,255,255,0.93);
-  font-size: clamp(15px, 2.0vw, 18px);
-  font-style: italic;
-  margin-bottom: 12px;
+/* =====================
+   GALLERY STRIP
+   ===================== */
+.gallery-strip{
+  display:flex;
+  gap:14px;
+  margin:50px 0;
+}
+.gallery-strip img{
+  width:160px;
+  height:100px;
+  object-fit:cover;
+  border-radius:8px;
+  opacity:0.9;
 }
 
-/* paragraph under tagline (you said you liked this) */
-.hero-paragraph {
-  color: rgba(255,255,255,0.92);
-  font-size: 15px;
-  margin-bottom: 0;
-  text-shadow: 0 6px 14px rgba(6,10,18,0.26);
+/* =====================
+   SECTIONS
+   ===================== */
+section{
+  margin-bottom:80px;
+}
+.section-title{
+  font-size:28px;
+  color:var(--navy);
+  margin-bottom:22px;
 }
 
-/* Remove hero-centered CTAs; we will place CTAs below the hero */
-/* Small decorative line above text for subtle art */
-.hero-decor {
-  width: 88px;
-  height: 6px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.45));
-  border-radius: 999px;
-  margin-bottom: 18px;
-  opacity: 0.95;
+/* =====================
+   BOX GRID
+   ===================== */
+.box-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.box{
+  padding:26px;
+  border-radius:14px;
+  background:var(--bg-soft);
+  border:1px solid var(--border-soft);
+  transition:transform .2s ease;
+}
+.box:hover{transform:translateY(-4px)}
+.box h4{
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.box .role{
+  font-weight:600;
+  font-size:14px;
+}
+.box .duration{
+  font-size:13px;
+  color:var(--text-muted);
+  margin:6px 0;
+}
+.box .micro{
+  font-size:13px;
+  color:var(--text-muted);
 }
 
-/* RIGHT: small framed photo — visible and offset 
-   The frame crops top & bottom; tune frame height to "cut" the photo */
-.hero-photo-frame {
-  position: relative;
-  z-index: 4;
-  width: 360px;
-  max-width: 34vw;
-  height: calc(84vh - 48px);
-  max-height: 640px;
-  border-radius: 14px;
-  overflow: hidden;
-  margin-right: 12px;
-  box-shadow: 0 26px 56px rgba(12,18,28,0.18);
-  border: 1px solid rgba(255,255,255,0.06);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.02));
-  align-self: center;
+/* =====================
+   CONTACT
+   ===================== */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.contact-box{
+  padding:24px;
+  background:var(--bg-soft);
+  border-radius:14px;
+  border:1px solid var(--border-soft);
+  text-align:center;
+  font-weight:600;
 }
 
-/* actual image inside the frame (zoomed out by scale < 1) */
-.hero-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Zoom out: scale <1 makes image appear smaller in the frame */
-  transform: scale(0.86);
-  transform-origin: center;
-  transition: transform .35s ease;
-  /* EDIT: tweak object-position to shift face inside the small frame */
-  object-position: 50% 38%;
-  filter: contrast(1.02) saturate(1.03);
-  display:block;
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media(max-width:1100px){
+  .layout{flex-direction:column}
+  aside{width:100%;height:auto;position:relative}
+  main{padding:40px}
+  .box-grid,.contact-grid{grid-template-columns:1fr}
 }
-
-/* optional: slightly raise on hover */
-.hero-photo-frame:hover img { transform: scale(0.89); }
-
-/* Keep hero responsive */
-@media (max-width:1000px){
-  .hero { grid-template-columns: 1fr 300px; }
-  .hero-photo-frame { width:280px; height:56vh; }
-  .hero-name { font-size: clamp(30px, 7vw, 46px); }
-}
-@media (max-width:720px){
-  .hero { grid-template-columns: 1fr; padding: 0; height: auto; min-height: 360px; }
-  .hero-bg-extension { display:none; }
-  .hero-photo-frame { width:100%; height:38vh; margin: 10px 0 0; }
-  .hero-content { padding:28px; }
-}
-
-    /* =========================
-       SECTIONS: simple cards (EDIT: SECTION CONTENTS)
-       ========================= */
-    section{margin-top:34px}
-    .card{background:var(--card);border-radius:14px;padding:18px;border:1px solid rgba(230,230,235,0.8);box-shadow:0 14px 30px rgba(15,23,42,0.03)}
-    .section-head{display:flex;align-items:baseline;gap:12px}
-    .eyebrow{font-weight:700;color:var(--accent);text-transform:uppercase;font-size:12px}
-    .section-title{font-size:20px;margin:6px 0 8px}
-    .muted{color:var(--muted);font-size:14px}
-
-    /* EXPERIENCE list with read-more links */
-    .experience-list{display:grid;gap:12px}
-    .exp-item{display:flex;flex-direction:column;gap:6px}
-    .exp-title{font-weight:700}
-    .read-link{font-weight:600;color:var(--accent);font-size:14px}
-
-    /* GALLERY GRID (small placeholders) */
-    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .gallery-item{border-radius:12px;overflow:hidden;min-height:140px;background:#eef2f8;display:flex;align-items:center;justify-content:center;position:relative}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block}
-    .gallery-label{position:absolute;left:10px;bottom:10px;background:rgba(15,23,42,0.7);color:white;padding:6px 10px;border-radius:999px;font-size:12px}
-
-    /* Scores table */
-    .scores-grid{display:flex;gap:12px;flex-wrap:wrap}
-    .score-card{min-width:180px;padding:12px;border-radius:12px;background:#fff;border:1px solid rgba(230,230,235,0.8);text-align:center}
-    .score-value{font-weight:700;font-size:20px;color:var(--accent);margin-bottom:6px}
-    .score-label{color:var(--muted);font-size:13px}
-
-    /* small responsive tweaks */
-    @media (max-width:720px){
-      .sidebar{display:none}
-      .layout{padding:12px}
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="layout">
 
-    <!-- =========================
-         LEFT SIDEBAR — EDIT: SIDEBAR LINKS / CONTACTS
-         =========================
-         Edit labels below:
-         - PROFILE_NAME (brand-name)
-         - PROFILE_SUB (brand-sub)
-         - NAV ITEMS (inside .nav-links)
-         - CONTACTS under .sidebar-footer (email, phone)
-    -->
-    <aside class="sidebar" aria-label="Main navigation">
-      <div class="brand-name"><!-- EDIT: PROFILE_NAME -->ANIKA JAIN</div>
-      <div class="brand-sub"><!-- EDIT: PROFILE_SUB -->Business · Data · Social Impact</div>
+<div class="layout">
 
-      <nav class="nav-links" aria-label="Sections navigation">
-        <!-- EDIT: NAV - re-order or remove links as you like -->
-        <a href="#home" class="active">Profile</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#experience">Experience</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#social">Social Impact</a>
-        <a href="#awards">Awards</a>
-        <a href="#education">Education</a>
-        <a href="#scores">Scores</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#cvs">CV & Links</a>
-      </nav>
+<aside>
+  <div class="brand">ANIKA JAIN</div>
+  <nav class="nav">
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects & Research</a>
+    <a href="#volunteering">Volunteering</a>
+    <a href="#awards">Awards</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</aside>
 
-      <div class="sidebar-footer">
-        <!-- EDIT: CONTACT INFO -->
-        Email: <a href="mailto:anikajain.co@gmail.com">anikajain.co@gmail.com</a><br>
-        GitHub: <a href="https://github.com/anikajain-ed" target="_blank">github.com/anikajain-ed</a><br>
-        LinkedIn: <a href="https://www.linkedin.com/in/anika--jain" target="_blank">/in/anika--jain</a>
-      </div>
-    </aside>
+<main>
 
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
-    <main>
+<!-- HERO -->
+<section class="hero">
+  <h1>Anika Jain</h1>
+  <p>
+    I work at the intersection of business, data, and social impact — leading AI data
+    initiatives, building analytical systems, and driving grassroots change.
+  </p>
+</section>
 
-    <!-- ===== HERO: framed photo + blurred background extension ===== -->
-<header id="home" class="hero" role="banner">
-  <!-- left-side blurred extension (artistic, not exact photo copy) -->
-  <div class="hero-bg-extension" aria-hidden="true"></div>
-
-  <!-- main content (left) -->
-  <div class="hero-content">
-    <div class="hero-decor" aria-hidden="true"></div>
-
-    <!-- EDIT: HERO NAME -->
-    <h1 class="hero-name"><!-- EDIT: HERO NAME -->Anika Jain</h1>
-
-    <!-- EDIT: HERO TAGLINE (short line between business / data / social impact) -->
-    <div class="hero-tagline"><!-- EDIT: HERO TAGLINE -->Business · Data · Social Impact</div>
-
-    <!-- EDIT: HERO PARAGRAPH -->
-    <p class="hero-paragraph">
-      I build systems where data, people and purpose meet — leading AI training projects, converting messy sensor streams into usable datasets, and running grassroots education and food distribution campaigns.
-    </p>
-  </div>
-
-  <!-- right-side framed portrait (smaller, cropped top & bottom) -->
-  <div class="hero-photo-frame" aria-hidden="false">
-    <!-- EDIT: replace filename if different -->
-    <img src="anika-hero.jpeg" alt="Anika Jain portrait">
-  </div>
-</header>
-
-<!-- ===== HERO CTAs BELOW (subtle; moved away from hero) =====
-     Paste this immediately AFTER the closing </header> -->
-<!-- ===== SUBNAV: important quick links (REPLACE existing CTAs) ===== -->
-<div id="subnav-important" style="display:flex;justify-content:center;margin:18px 0 28px;z-index:5">
-  <div style="display:flex;gap:18px;align-items:center;opacity:0.95;font-weight:600">
-    <a class="btn" href="#experience" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:10px 14px;border-radius:999px;font-weight:700">Professional Experience</a>
-    <a class="btn" href="#education" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:10px 14px;border-radius:999px;font-weight:700">Education</a>
-    <a class="btn" href="#awards" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:10px 14px;border-radius:999px;font-weight:700">Awards</a>
-    <a class="btn" id="openGalleryBtn" href="#gallery" style="background:transparent;border:1px solid rgba(15,23,42,0.06);color:#374151;padding:10px 14px;border-radius:999px;font-weight:700">Gallery</a>
-  </div>
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
+  <img src="gallery-1.jpeg">
+  <img src="gallery-2.jpeg">
+  <img src="gallery-3.jpeg">
+  <img src="gallery-4.jpeg">
 </div>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-title">Experience</div>
+  <div class="box-grid">
+    <a class="box" href="rmsi.html">
+      <h4>RMSI</h4>
+      <div class="role">Team Lead, Data & AI Projects</div>
+      <div class="duration">2024 – Present</div>
+      <div class="micro">Leading large-scale AI data curation initiatives</div>
+    </a>
+    <a class="box" href="third-wave-coffee.html">
+      <h4>Third Wave Coffee</h4>
+      <div class="role">Data Analyst Intern</div>
+      <div class="duration">3 Months</div>
+      <div class="micro">Pricing experiments and outlet-level analytics</div>
+    </a>
+    <a class="box" href="options-unlimited.html">
+      <h4>Options Unlimited</h4>
+      <div class="role">Business Operations (Family Business)</div>
+      <div class="duration">1 Year</div>
+      <div class="micro">Strategy, operations, and product decision-making</div>
+    </a>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-title">Education</div>
+  <div class="box-grid">
+    <a class="box" href="arsd.html">
+      <h4>Atma Ram Sanatan Dharma College</h4>
+      <div class="role">B.Sc. (Hons) Mathematics & CS</div>
+      <div class="duration">2021 – 2024</div>
+      <div class="micro">Strong foundation in mathematics and computing</div>
+    </a>
+    <a class="box" href="ignou.html">
+      <h4>IGNOU</h4>
+      <div class="role">MBA</div>
+      <div class="duration">2024 – Present</div>
+      <div class="micro">Developing managerial and strategic perspective</div>
+    </a>
+    <a class="box" href="somerville-school.html">
+      <h4>Somerville School, Noida</h4>
+      <div class="role">Schooling</div>
+      <div class="duration">2007 – 2021</div>
+      <div class="micro">Academic excellence and leadership foundations</div>
+    </a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-title">Projects & Research</div>
+  <div class="box-grid">
+    <a class="box" href="amazon-analytics.html">
+      <h4>Amazon Analytics Project</h4>
+      <div class="role">Business & Data Project</div>
+      <div class="duration">Completed</div>
+      <div class="micro">Demand analysis and performance insights</div>
+    </a>
+    <a class="box" href="cyber-resilience.html">
+      <h4>Cyber Resilience</h4>
+      <div class="role">Academic Chapter</div>
+      <div class="duration">Completed</div>
+      <div class="micro">Technology risk and resilience frameworks</div>
+    </a>
+    <a class="box" href="ai-research.html">
+      <h4>AI & Society</h4>
+      <div class="role">Research Chapter</div>
+      <div class="duration">Ongoing</div>
+      <div class="micro">Ethical and applied AI systems</div>
+    </a>
+  </div>
+</section>
+
+<!-- VOLUNTEERING -->
+<section id="volunteering">
+  <div class="section-title">Volunteering</div>
+  <div class="box-grid">
+    <a class="box" href="nss.html">
+      <h4>National Service Scheme</h4>
+      <div class="role">Secretary</div>
+      <div class="duration">2 Years</div>
+      <div class="micro">Led 120+ volunteers across social initiatives</div>
+    </a>
+    <a class="box" href="robin-hood-army.html">
+      <h4>Robin Hood Army</h4>
+      <div class="role">Volunteer & Campaign Lead</div>
+      <div class="duration">Ongoing</div>
+      <div class="micro">Food security and education drives</div>
+    </a>
+    <a class="box" href="blessu.html">
+      <h4>BlessU</h4>
+      <div class="role">Founder</div>
+      <div class="duration">Ongoing</div>
+      <div class="micro">Grassroots impact and education access</div>
+    </a>
+  </div>
+</section>
+
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
+  <img src="gallery-5.jpeg">
+  <img src="gallery-6.jpeg">
+  <img src="gallery-7.jpeg">
+  <img src="gallery-8.jpeg">
 </div>
 
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-title">Awards & Recognition</div>
+  <p>
+    Recognised by Delhi Police and multiple institutions for leadership,
+    social impact, and academic excellence. State-level yoga medalist
+    and international Olympiad awardee.
+  </p>
+</section>
 
-      <!-- =========================
-           GALLERY (EDIT: FILES IN ROOT)
-           Use JPEG filenames in root: e.g. gallery-award-1.jpeg, gallery-teach-1.jpeg, gallery-food-1.jpeg
-           ========================= -->
-      <section id="gallery">
-        <div class="section-head">
-          <div class="eyebrow">Gallery</div>
-          <h3 class="section-title">Snapshots & moments</h3>
-        </div>
-
-        <div class="gallery-grid" style="margin-top:12px">
-          <!-- EDIT: Replace these with your images in root -->
-          <div class="gallery-item card">
-            <img src="gallery-award-1.jpeg" alt="Award 1">
-            <div class="gallery-label">Delhi Police felicitation</div>
-          </div>
-
-          <div class="gallery-item card">
-            <img src="gallery-teach-1.jpeg" alt="Teaching">
-            <div class="gallery-label">Teaching children</div>
-          </div>
-
-          <div class="gallery-item card">
-            <img src="gallery-food-1.jpeg" alt="Food drive">
-            <div class="gallery-label">Food drive</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================
-           EXPERIENCE — EDIT: EXPERIENCE BULLETS / LINKS
-           Content for each role taken from your CV (RMSI, Options Unlimited, Third Wave Coffee).
-           See CV for details. :contentReference[oaicite:1]{index=1}
-           ========================= -->
-      <section id="experience">
-        <div class="section-head">
-          <div class="eyebrow">Experience</div>
-          <h3 class="section-title">Professional snapshots</h3>
-        </div>
-
-        <div class="card experience-list" style="margin-top:12px">
-          <div class="exp-item">
-            <div class="exp-title">RMSI — Data Analyst → Team Lead</div>
-            <div class="muted">Lead AI training & data curation projects for a confidential global tech client, managed full data pipeline, and improved dataset accuracy and throughput. (See CV for more details.)</div>
-            <a class="read-link" href="experience-rmsi.html">Read more →</a>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-title">Options Unlimited — Business Analyst</div>
-            <div class="muted">E-commerce analytics, pricing and ad strategy improvements that increased sales and reduced ad spend. (See CV.)</div>
-            <a class="read-link" href="experience-analytics.html">Read more →</a>
-          </div>
-
-          <div class="exp-item">
-            <div class="exp-title">Third Wave Coffee — Data Analyst Intern</div>
-            <div class="muted">Store-level experiments, sales analysis, and operational reporting. (See CV.)</div>
-            <a class="read-link" href="experience-internship.html">Read more →</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================
-           PORTFOLIO / OTHER SECTIONS
-           ========================= -->
-      <section id="portfolio">
-        <div class="section-head">
-          <div class="eyebrow">Portfolio</div>
-          <h3 class="section-title">Project overviews</h3>
-        </div>
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Wearable & time-series data conversion · Pricing experiments · Social impact analytics</div>
-          <div style="margin-top:10px"><a href="projects.html" class="read-link">See project list →</a></div>
-        </div>
-      </section>
-
-      <!-- =========================
-           SOCIAL IMPACT
-           ========================= -->
-      <section id="social">
-        <div class="section-head"><div class="eyebrow">Impact</div><h3 class="section-title">Social work</h3></div>
-        <div class="card" style="margin-top:12px">
-          <div class="muted">NSS, BlessU & Robin Hood Army — food distribution, teaching and campaign design/execution.</div>
-          <div style="margin-top:10px"><a href="impact-details.html" class="read-link">Read more →</a></div>
-        </div>
-      </section>
-
-      <!-- =========================
-           AWARDS
-           ========================= -->
-      <section id="awards">
-        <div class="section-head"><div class="eyebrow">Awards</div><h3 class="section-title">Recognitions</h3></div>
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Felicitated by Delhi Police for social services; college recognitions; state-level yoga medalist; international Olympiad ranks. (See CV.)</div>
-        </div>
-      </section>
-
-      <!-- =========================
-           EDUCATION
-           (Details pulled from your CV) :contentReference[oaicite:2]{index=2}
-           ========================= -->
-      <section id="education">
-        <div class="section-head"><div class="eyebrow">Education</div><h3 class="section-title">Academic background</h3></div>
-        <div class="card" style="margin-top:12px">
-          <div class="muted">
-            MBA — IGNOU (2024 – present)<br>
-            B.Sc. (Hons) Mathematics with Computer Science — Atma Ram Sanatan Dharm College, University of Delhi (2021–2024).<br>
-            School: Somerville School, Noida.
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================
-           SCORES SECTION (EDIT: update if you want other entries)
-           These are taken from your CV (AISSE & AISSCE percentages) :contentReference[oaicite:3]{index=3}
-           ========================= -->
-      <section id="scores">
-        <div class="section-head"><div class="eyebrow">Scores</div><h3 class="section-title">Select academic scores</h3></div>
-
-        <div class="card" style="margin-top:12px">
-          <div class="scores-grid">
-            <div class="score-card">
-              <div class="score-value">94%</div>
-              <div class="score-label">All India Senior School Certificate Examination (AISSE) — 2021</div>
-            </div>
-
-            <div class="score-card">
-              <div class="score-value">96%</div>
-              <div class="score-label">All India Secondary School Examination (Class 10) — 2019</div>
-            </div>
-
-            <div class="score-card">
-              <div class="score-value">B.Sc. (Hons)</div>
-              <div class="score-label">Mathematics with Computer Science — Atma Ram Sanatan Dharma College</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- =========================
-           HOBBIES
-           ========================= -->
-      <section id="hobbies">
-        <div class="section-head"><div class="eyebrow">Hobbies</div><h3 class="section-title">What keeps me grounded</h3></div>
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Yoga, teaching, creative writing, basketball, classical dance.</div>
-        </div>
-      </section>
-
-      <!-- =========================
-           CVS & LINKS — EDIT: replace links if needed
-           ========================= -->
-      <section id="cvs">
-        <div class="section-head"><div class="eyebrow">CV & links</div><h3 class="section-title">Quick access</h3></div>
-        <div class="card" style="margin-top:12px">
-          <div class="muted">Email: <a href="mailto:anikajain.co@gmail.com">anikajain.co@gmail.com</a></div>
-          <div style="margin-top:8px">
-            <!-- EDIT: set actual PDF links or leave -->
-            <a class="btn" href="Anika Jain CV.pdf" target="_blank">Download CV (PDF)</a>
-            <a class="btn" href="https://github.com/anikajain-ed" target="_blank">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/anika--jain" target="_blank">LinkedIn</a>
-          </div>
-        </div>
-      </section>
-
-      <footer style="margin-top:32px;text-align:center;color:var(--muted);font-size:13px">
-        © 2025 Anika Jain · Portfolio for Masters admissions
-      </footer>
-    </main>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title">Contact</div>
+  <div class="contact-grid">
+    <div class="contact-box">anikajain.co@gmail.com</div>
+    <div class="contact-box">
+      <a href="https://www.linkedin.com/in/anika--jain">LinkedIn</a>
+    </div>
+    <div class="contact-box">
+      <a href="https://github.com/anikajain-ed">GitHub</a>
+    </div>
   </div>
+</section>
 
-  <script>
-    /* =========================
-       SIMPLE NAV BEHAVIOUR
-       ========================= */
-    (function(){
-      const links = document.querySelectorAll('.nav-links a');
-      const sections = Array.from(document.querySelectorAll('main section, main header'));
-      function onScroll(){
-        const scrollPos = window.scrollY + 160;
-        let current = sections[0].id || 'home';
-        sections.forEach(s=>{
-          if(s.offsetTop <= scrollPos) current = s.id || current;
-        });
-        links.forEach(a=> a.classList.toggle('active', a.getAttribute('href') === '#'+current));
-      }
-      window.addEventListener('scroll', onScroll);
-      onScroll();
+</main>
+</div>
 
-      links.forEach(a=>{
-        a.addEventListener('click', (e)=>{
-          const href = a.getAttribute('href');
-          if(!href || !href.startsWith('#')) return;
-          e.preventDefault();
-          const el = document.querySelector(href);
-          if(!el) return;
-          const y = el.getBoundingClientRect().top + window.scrollY - 20;
-          window.scrollTo({top: y, behavior:'smooth'});
-        })
-      });
-    })();
-  </script>
 </body>
 </html>
