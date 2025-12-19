@@ -5,181 +5,233 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Anika Jain</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
 
 <style>
-/* =====================
-   COLOR PALETTE — OPTION B
-   ===================== */
+/* =========================
+   AURA COLOR SYSTEM (RESTORED)
+   ========================= */
 :root{
-  --bg-main:#f8f9fb;
-  --bg-soft:#ffffff;
+  --bg-base:#f8f6fb;
+  --bg-aura1:rgba(255,210,230,0.35);
+  --bg-aura2:rgba(200,215,255,0.35);
+  --bg-card:rgba(255,255,255,0.85);
+
   --navy:#1f2a44;
   --navy-soft:#2f3e63;
-  --text-main:#111827;
+  --text-main:#101423;
   --text-muted:#6b7280;
-  --border-soft:rgba(31,42,68,0.08);
+
+  --radius:18px;
+  --shadow-soft:0 20px 50px rgba(30,40,80,0.12);
+  --shadow-hover:0 30px 70px rgba(30,40,80,0.18);
 }
 
-/* =====================
+/* =========================
    GLOBAL
-   ===================== */
+   ========================= */
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:"Poppins",system-ui;
-  background:var(--bg-main);
   color:var(--text-main);
+  background:
+    radial-gradient(circle at 20% 10%, var(--bg-aura1), transparent 60%),
+    radial-gradient(circle at 80% 30%, var(--bg-aura2), transparent 60%),
+    var(--bg-base);
 }
-a{color:inherit;text-decoration:none}
-h1,h2,h3{margin:0}
+a{text-decoration:none;color:inherit}
 
-/* =====================
+/* =========================
    LAYOUT
-   ===================== */
+   ========================= */
 .layout{
   display:flex;
   max-width:1400px;
   margin:auto;
 }
+
+/* =========================
+   SIDEBAR (FLUSH LEFT)
+   ========================= */
 aside{
   width:260px;
-  padding:36px 28px;
+  padding:40px 30px;
   position:sticky;
   top:0;
   height:100vh;
-  background:var(--bg-soft);
-  border-right:1px solid var(--border-soft);
 }
-main{
-  flex:1;
-  padding:40px 60px;
-}
-
-/* =====================
-   SIDEBAR
-   ===================== */
 .brand{
   font-weight:700;
   letter-spacing:0.15em;
   font-size:14px;
+  color:var(--navy);
 }
 .nav{
   margin-top:40px;
   display:flex;
   flex-direction:column;
-  gap:14px;
+  gap:16px;
 }
 .nav a{
   font-weight:600;
   font-size:14px;
-  color:var(--navy);
+  color:var(--navy-soft);
 }
 
-/* =====================
-   HERO
-   ===================== */
+/* =========================
+   MAIN
+   ========================= */
+main{
+  flex:1;
+  padding:50px 70px;
+}
+
+/* =========================
+   HERO (RESTORED)
+   ========================= */
 .hero{
-  padding:80px 0 60px;
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:60px;
+  align-items:center;
+  margin-bottom:80px;
 }
 .hero h1{
-  font-size:56px;
+  font-size:60px;
   color:var(--navy);
+  margin-bottom:20px;
 }
 .hero p{
-  max-width:620px;
-  margin-top:18px;
+  max-width:560px;
   font-size:16px;
   color:var(--text-muted);
 }
+.hero-image{
+  position:relative;
+}
+.hero-image::before{
+  content:"";
+  position:absolute;
+  inset:-20px;
+  background:radial-gradient(circle,var(--bg-aura1),transparent 70%);
+  filter:blur(30px);
+  z-index:-1;
+}
+.hero-image img{
+  width:100%;
+  border-radius:24px;
+  box-shadow:var(--shadow-soft);
+}
 
-/* =====================
+/* =========================
    GALLERY STRIP
-   ===================== */
+   ========================= */
 .gallery-strip{
   display:flex;
-  gap:14px;
-  margin:50px 0;
+  gap:18px;
+  margin:70px 0;
 }
 .gallery-strip img{
-  width:160px;
-  height:100px;
+  width:180px;
+  height:120px;
   object-fit:cover;
-  border-radius:8px;
-  opacity:0.9;
+  border-radius:14px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .3s ease;
 }
+.gallery-strip img:hover{transform:translateY(-6px)}
 
-/* =====================
+/* =========================
    SECTIONS
-   ===================== */
-section{
-  margin-bottom:80px;
-}
+   ========================= */
+section{margin-bottom:90px}
 .section-title{
-  font-size:28px;
+  font-size:30px;
   color:var(--navy);
-  margin-bottom:22px;
+  margin-bottom:28px;
 }
 
-/* =====================
-   BOX GRID
-   ===================== */
+/* =========================
+   BOX GRID (AESTHETIC FIXED)
+   ========================= */
 .box-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:30px;
 }
 .box{
-  padding:26px;
-  border-radius:14px;
-  background:var(--bg-soft);
-  border:1px solid var(--border-soft);
-  transition:transform .2s ease;
+  background:var(--bg-card);
+  backdrop-filter:blur(8px);
+  padding:32px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+  transition:all .3s ease;
 }
-.box:hover{transform:translateY(-4px)}
+.box:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-hover);
+}
 .box h4{
+  font-size:20px;
   color:var(--navy);
-  margin-bottom:6px;
+  margin-bottom:10px;
 }
 .box .role{
   font-weight:600;
-  font-size:14px;
+  margin-bottom:6px;
 }
 .box .duration{
   font-size:13px;
   color:var(--text-muted);
-  margin:6px 0;
+  margin-bottom:10px;
 }
 .box .micro{
-  font-size:13px;
+  font-size:14px;
   color:var(--text-muted);
 }
 
-/* =====================
+/* =========================
+   AWARDS GALLERY
+   ========================= */
+.award-gallery{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.award-gallery img{
+  width:200px;
+  height:140px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:var(--shadow-soft);
+}
+
+/* =========================
    CONTACT
-   ===================== */
+   ========================= */
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  gap:30px;
 }
 .contact-box{
-  padding:24px;
-  background:var(--bg-soft);
-  border-radius:14px;
-  border:1px solid var(--border-soft);
+  background:var(--bg-card);
+  padding:30px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
   text-align:center;
   font-weight:600;
 }
 
-/* =====================
+/* =========================
    RESPONSIVE
-   ===================== */
+   ========================= */
 @media(max-width:1100px){
   .layout{flex-direction:column}
-  aside{width:100%;height:auto;position:relative}
+  aside{width:100%;height:auto}
   main{padding:40px}
+  .hero{grid-template-columns:1fr}
   .box-grid,.contact-grid{grid-template-columns:1fr}
 }
 </style>
@@ -205,11 +257,16 @@ section{
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Anika Jain</h1>
-  <p>
-    I work at the intersection of business, data, and social impact — leading AI data
-    initiatives, building analytical systems, and driving grassroots change.
-  </p>
+  <div>
+    <h1>Anika Jain</h1>
+    <p>
+      I work at the intersection of business, data, and social impact — leading AI
+      data initiatives, building analytical systems, and driving grassroots change.
+    </p>
+  </div>
+  <div class="hero-image">
+    <img src="anika-hero.jpeg" alt="Anika Jain">
+  </div>
 </section>
 
 <!-- GALLERY STRIP -->
@@ -253,13 +310,13 @@ section{
       <h4>Atma Ram Sanatan Dharma College</h4>
       <div class="role">B.Sc. (Hons) Mathematics & CS</div>
       <div class="duration">2021 – 2024</div>
-      <div class="micro">Strong foundation in mathematics and computing</div>
+      <div class="micro">Strong mathematical and computational foundation</div>
     </a>
     <a class="box" href="ignou.html">
       <h4>IGNOU</h4>
       <div class="role">MBA</div>
       <div class="duration">2024 – Present</div>
-      <div class="micro">Developing managerial and strategic perspective</div>
+      <div class="micro">Developing strategic and managerial perspective</div>
     </a>
     <a class="box" href="somerville-school.html">
       <h4>Somerville School, Noida</h4>
@@ -275,7 +332,7 @@ section{
   <div class="section-title">Projects & Research</div>
   <div class="box-grid">
     <a class="box" href="amazon-analytics.html">
-      <h4>Amazon Analytics Project</h4>
+      <h4>Amazon Analytics</h4>
       <div class="role">Business & Data Project</div>
       <div class="duration">Completed</div>
       <div class="micro">Demand analysis and performance insights</div>
@@ -331,11 +388,11 @@ section{
 <!-- AWARDS -->
 <section id="awards">
   <div class="section-title">Awards & Recognition</div>
-  <p>
-    Recognised by Delhi Police and multiple institutions for leadership,
-    social impact, and academic excellence. State-level yoga medalist
-    and international Olympiad awardee.
-  </p>
+  <div class="award-gallery">
+    <img src="award-1.jpeg">
+    <img src="award-2.jpeg">
+    <img src="award-3.jpeg">
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -343,12 +400,8 @@ section{
   <div class="section-title">Contact</div>
   <div class="contact-grid">
     <div class="contact-box">anikajain.co@gmail.com</div>
-    <div class="contact-box">
-      <a href="https://www.linkedin.com/in/anika--jain">LinkedIn</a>
-    </div>
-    <div class="contact-box">
-      <a href="https://github.com/anikajain-ed">GitHub</a>
-    </div>
+    <div class="contact-box"><a href="https://www.linkedin.com/in/anika--jain">LinkedIn</a></div>
+    <div class="contact-box"><a href="https://github.com/anikajain-ed">GitHub</a></div>
   </div>
 </section>
 
