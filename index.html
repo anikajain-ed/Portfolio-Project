@@ -9,22 +9,24 @@
 
 <style>
 /* =========================
-   AURA COLOR SYSTEM (RESTORED)
+   ORIGINAL PINK AURA SYSTEM
    ========================= */
 :root{
-  --bg-base:#f8f6fb;
-  --bg-aura1:rgba(255,210,230,0.35);
-  --bg-aura2:rgba(200,215,255,0.35);
-  --bg-card:rgba(255,255,255,0.85);
+  --bg-base:#faf7fb;
+  --aura-pink:rgba(255,200,220,0.45);
+  --aura-lavender:rgba(215,205,255,0.45);
+  --aura-cream:rgba(255,245,210,0.35);
 
-  --navy:#1f2a44;
-  --navy-soft:#2f3e63;
-  --text-main:#101423;
+  --accent:#b455a0;
+  --accent-soft:#e8b7d8;
+
+  --text-main:#1b1e2a;
   --text-muted:#6b7280;
 
+  --card-bg:rgba(255,255,255,0.85);
   --radius:18px;
-  --shadow-soft:0 20px 50px rgba(30,40,80,0.12);
-  --shadow-hover:0 30px 70px rgba(30,40,80,0.18);
+  --shadow:0 20px 50px rgba(180,85,160,0.18);
+  --shadow-hover:0 28px 70px rgba(180,85,160,0.25);
 }
 
 /* =========================
@@ -36,8 +38,9 @@ body{
   font-family:"Poppins",system-ui;
   color:var(--text-main);
   background:
-    radial-gradient(circle at 20% 10%, var(--bg-aura1), transparent 60%),
-    radial-gradient(circle at 80% 30%, var(--bg-aura2), transparent 60%),
+    radial-gradient(circle at 15% 10%, var(--aura-pink), transparent 60%),
+    radial-gradient(circle at 80% 25%, var(--aura-lavender), transparent 60%),
+    radial-gradient(circle at 40% 80%, var(--aura-cream), transparent 60%),
     var(--bg-base);
 }
 a{text-decoration:none;color:inherit}
@@ -52,20 +55,17 @@ a{text-decoration:none;color:inherit}
 }
 
 /* =========================
-   SIDEBAR (FLUSH LEFT)
+   LEFT SIDEBAR (RESTORED)
    ========================= */
 aside{
-  width:260px;
-  padding:40px 30px;
-  position:sticky;
-  top:0;
-  height:100vh;
+  width:250px;
+  padding:40px 24px;
 }
 .brand{
   font-weight:700;
-  letter-spacing:0.15em;
+  letter-spacing:0.18em;
   font-size:14px;
-  color:var(--navy);
+  color:var(--accent);
 }
 .nav{
   margin-top:40px;
@@ -76,7 +76,7 @@ aside{
 .nav a{
   font-weight:600;
   font-size:14px;
-  color:var(--navy-soft);
+  color:var(--accent);
 }
 
 /* =========================
@@ -98,30 +98,30 @@ main{
   margin-bottom:80px;
 }
 .hero h1{
-  font-size:60px;
-  color:var(--navy);
-  margin-bottom:20px;
+  font-size:56px;
+  color:var(--accent);
+  margin-bottom:18px;
 }
 .hero p{
   max-width:560px;
   font-size:16px;
   color:var(--text-muted);
 }
-.hero-image{
+.hero-img{
   position:relative;
 }
-.hero-image::before{
+.hero-img::before{
   content:"";
   position:absolute;
-  inset:-20px;
-  background:radial-gradient(circle,var(--bg-aura1),transparent 70%);
-  filter:blur(30px);
+  inset:-25px;
+  background:radial-gradient(circle,var(--aura-pink),transparent 70%);
+  filter:blur(35px);
   z-index:-1;
 }
-.hero-image img{
+.hero-img img{
   width:100%;
-  border-radius:24px;
-  box-shadow:var(--shadow-soft);
+  border-radius:26px;
+  box-shadow:var(--shadow);
 }
 
 /* =========================
@@ -129,43 +129,44 @@ main{
    ========================= */
 .gallery-strip{
   display:flex;
-  gap:18px;
+  gap:16px;
   margin:70px 0;
 }
 .gallery-strip img{
-  width:180px;
-  height:120px;
+  width:170px;
+  height:110px;
   object-fit:cover;
   border-radius:14px;
-  box-shadow:var(--shadow-soft);
+  box-shadow:var(--shadow);
   transition:transform .3s ease;
 }
-.gallery-strip img:hover{transform:translateY(-6px)}
+.gallery-strip img:hover{
+  transform:translateY(-6px);
+}
 
 /* =========================
    SECTIONS
    ========================= */
 section{margin-bottom:90px}
 .section-title{
-  font-size:30px;
-  color:var(--navy);
-  margin-bottom:28px;
+  font-size:28px;
+  color:var(--accent);
+  margin-bottom:26px;
 }
 
 /* =========================
-   BOX GRID (AESTHETIC FIXED)
+   BOX GRID (FIXED PROPORTIONS)
    ========================= */
 .box-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:30px;
+  gap:26px;
 }
 .box{
-  background:var(--bg-card);
-  backdrop-filter:blur(8px);
-  padding:32px;
+  background:var(--card-bg);
+  padding:24px 26px; /* reduced height */
   border-radius:var(--radius);
-  box-shadow:var(--shadow-soft);
+  box-shadow:var(--shadow);
   transition:all .3s ease;
 }
 .box:hover{
@@ -173,18 +174,18 @@ section{margin-bottom:90px}
   box-shadow:var(--shadow-hover);
 }
 .box h4{
-  font-size:20px;
-  color:var(--navy);
-  margin-bottom:10px;
+  font-size:20px; /* bigger text */
+  color:var(--accent);
+  margin-bottom:8px;
 }
 .box .role{
   font-weight:600;
-  margin-bottom:6px;
+  font-size:15px;
 }
 .box .duration{
   font-size:13px;
   color:var(--text-muted);
-  margin-bottom:10px;
+  margin:6px 0 8px;
 }
 .box .micro{
   font-size:14px;
@@ -192,19 +193,22 @@ section{margin-bottom:90px}
 }
 
 /* =========================
-   AWARDS GALLERY
+   AWARDS (CLICKABLE IMAGES)
    ========================= */
 .award-gallery{
   display:flex;
   gap:22px;
-  flex-wrap:wrap;
 }
-.award-gallery img{
-  width:200px;
-  height:140px;
+.award-gallery a img{
+  width:190px;
+  height:130px;
   object-fit:cover;
   border-radius:14px;
-  box-shadow:var(--shadow-soft);
+  box-shadow:var(--shadow);
+  transition:transform .3s ease;
+}
+.award-gallery a img:hover{
+  transform:translateY(-6px);
 }
 
 /* =========================
@@ -213,13 +217,13 @@ section{margin-bottom:90px}
 .contact-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:30px;
+  gap:26px;
 }
 .contact-box{
-  background:var(--bg-card);
-  padding:30px;
+  background:var(--card-bg);
+  padding:26px;
   border-radius:var(--radius);
-  box-shadow:var(--shadow-soft);
+  box-shadow:var(--shadow);
   text-align:center;
   font-weight:600;
 }
@@ -229,7 +233,7 @@ section{margin-bottom:90px}
    ========================= */
 @media(max-width:1100px){
   .layout{flex-direction:column}
-  aside{width:100%;height:auto}
+  aside{width:100%}
   main{padding:40px}
   .hero{grid-template-columns:1fr}
   .box-grid,.contact-grid{grid-template-columns:1fr}
@@ -246,7 +250,7 @@ section{margin-bottom:90px}
   <nav class="nav">
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
-    <a href="#projects">Projects & Research</a>
+    <a href="#projects">Projects</a>
     <a href="#volunteering">Volunteering</a>
     <a href="#awards">Awards</a>
     <a href="#contact">Contact</a>
@@ -260,11 +264,11 @@ section{margin-bottom:90px}
   <div>
     <h1>Anika Jain</h1>
     <p>
-      I work at the intersection of business, data, and social impact — leading AI
-      data initiatives, building analytical systems, and driving grassroots change.
+      Working at the intersection of business, data, and social impact —
+      leading analytical initiatives and grassroots change.
     </p>
   </div>
-  <div class="hero-image">
+  <div class="hero-img">
     <img src="anika-hero.jpeg" alt="Anika Jain">
   </div>
 </section>
@@ -285,19 +289,19 @@ section{margin-bottom:90px}
       <h4>RMSI</h4>
       <div class="role">Team Lead, Data & AI Projects</div>
       <div class="duration">2024 – Present</div>
-      <div class="micro">Leading large-scale AI data curation initiatives</div>
+      <div class="micro">Leading large-scale AI data initiatives</div>
     </a>
     <a class="box" href="third-wave-coffee.html">
       <h4>Third Wave Coffee</h4>
       <div class="role">Data Analyst Intern</div>
       <div class="duration">3 Months</div>
-      <div class="micro">Pricing experiments and outlet-level analytics</div>
+      <div class="micro">Pricing experiments and outlet analytics</div>
     </a>
     <a class="box" href="options-unlimited.html">
       <h4>Options Unlimited</h4>
-      <div class="role">Business Operations (Family Business)</div>
+      <div class="role">Business Operations</div>
       <div class="duration">1 Year</div>
-      <div class="micro">Strategy, operations, and product decision-making</div>
+      <div class="micro">Strategy and product decision-making</div>
     </a>
   </div>
 </section>
@@ -307,22 +311,22 @@ section{margin-bottom:90px}
   <div class="section-title">Education</div>
   <div class="box-grid">
     <a class="box" href="arsd.html">
-      <h4>Atma Ram Sanatan Dharma College</h4>
+      <h4>ARSD College, DU</h4>
       <div class="role">B.Sc. (Hons) Mathematics & CS</div>
       <div class="duration">2021 – 2024</div>
-      <div class="micro">Strong mathematical and computational foundation</div>
+      <div class="micro">Mathematical and computational rigor</div>
     </a>
     <a class="box" href="ignou.html">
       <h4>IGNOU</h4>
       <div class="role">MBA</div>
       <div class="duration">2024 – Present</div>
-      <div class="micro">Developing strategic and managerial perspective</div>
+      <div class="micro">Strategic and managerial learning</div>
     </a>
     <a class="box" href="somerville-school.html">
-      <h4>Somerville School, Noida</h4>
+      <h4>Somerville School</h4>
       <div class="role">Schooling</div>
       <div class="duration">2007 – 2021</div>
-      <div class="micro">Academic excellence and leadership foundations</div>
+      <div class="micro">Academic and leadership foundations</div>
     </a>
   </div>
 </section>
@@ -335,19 +339,19 @@ section{margin-bottom:90px}
       <h4>Amazon Analytics</h4>
       <div class="role">Business & Data Project</div>
       <div class="duration">Completed</div>
-      <div class="micro">Demand analysis and performance insights</div>
+      <div class="micro">Demand analysis and insights</div>
     </a>
     <a class="box" href="cyber-resilience.html">
       <h4>Cyber Resilience</h4>
       <div class="role">Academic Chapter</div>
       <div class="duration">Completed</div>
-      <div class="micro">Technology risk and resilience frameworks</div>
+      <div class="micro">Technology risk frameworks</div>
     </a>
     <a class="box" href="ai-research.html">
       <h4>AI & Society</h4>
       <div class="role">Research Chapter</div>
       <div class="duration">Ongoing</div>
-      <div class="micro">Ethical and applied AI systems</div>
+      <div class="micro">Ethical and applied AI</div>
     </a>
   </div>
 </section>
@@ -357,22 +361,22 @@ section{margin-bottom:90px}
   <div class="section-title">Volunteering</div>
   <div class="box-grid">
     <a class="box" href="nss.html">
-      <h4>National Service Scheme</h4>
+      <h4>NSS</h4>
       <div class="role">Secretary</div>
       <div class="duration">2 Years</div>
-      <div class="micro">Led 120+ volunteers across social initiatives</div>
+      <div class="micro">Led 120+ volunteers</div>
     </a>
     <a class="box" href="robin-hood-army.html">
       <h4>Robin Hood Army</h4>
-      <div class="role">Volunteer & Campaign Lead</div>
+      <div class="role">Volunteer Lead</div>
       <div class="duration">Ongoing</div>
-      <div class="micro">Food security and education drives</div>
+      <div class="micro">Food security initiatives</div>
     </a>
     <a class="box" href="blessu.html">
       <h4>BlessU</h4>
       <div class="role">Founder</div>
       <div class="duration">Ongoing</div>
-      <div class="micro">Grassroots impact and education access</div>
+      <div class="micro">Grassroots impact work</div>
     </a>
   </div>
 </section>
@@ -389,9 +393,9 @@ section{margin-bottom:90px}
 <section id="awards">
   <div class="section-title">Awards & Recognition</div>
   <div class="award-gallery">
-    <img src="award-1.jpeg">
-    <img src="award-2.jpeg">
-    <img src="award-3.jpeg">
+    <a href="award-delhi-police.html"><img src="award-1.jpeg"></a>
+    <a href="award-yoga.html"><img src="award-2.jpeg"></a>
+    <a href="award-olympiad.html"><img src="award-3.jpeg"></a>
   </div>
 </section>
 
